@@ -137,6 +137,7 @@ libsupport-routines = \
   xmemstream \
   xmkdir \
   xmkdirp \
+  xmkfifo \
   xmmap \
   xmprotect \
   xmunmap \
