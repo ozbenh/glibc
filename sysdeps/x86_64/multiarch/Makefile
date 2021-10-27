@@ -11,6 +11,10 @@ sysdep_routines += \
   memcmp-evex-movbe \
   memcmp-sse2 \
   memcmp-ssse3 \
+  memcmpeq-sse2 \
+  memcmpeq-avx2 \
+  memcmpeq-avx2-rtm \
+  memcmpeq-evex \
   memcpy-ssse3 \
   memcpy-ssse3-back \
   memmove-avx-unaligned-erms \
