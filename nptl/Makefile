@@ -22,8 +22,14 @@ subdir	:= nptl
 
 include ../Makeconfig
 
-headers := pthread.h semaphore.h bits/semaphore.h \
-	   bits/struct_mutex.h bits/struct_rwlock.h
+headers := \
+  bits/atomic_wide_counter.h \
+  bits/semaphore.h \
+  bits/struct_mutex.h \
+  bits/struct_rwlock.h \
+  pthread.h \
+  semaphore.h \
+  # headers
 
 extra-libs := libpthread
 extra-libs-others := $(extra-libs)
@@ -277,7 +283,6 @@ tests = \
   tst-cancel7 \
   tst-cancel17 \
   tst-cancel24 \
-  tst-cond22 \
   tst-cond26 \
   tst-context1 \
   tst-default-attr \
@@ -368,6 +373,7 @@ tests-container =  tst-pthread-getattr
 
 tests-internal := \
   tst-barrier5 \
+  tst-cond22 \
   tst-mutex8 \
   tst-mutex8-static \
   tst-mutexpi8 \
