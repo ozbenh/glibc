@@ -132,6 +132,7 @@ rtld-routines = \
   dl-hwcaps \
   dl-hwcaps-subdirs \
   dl-hwcaps_split \
+  dl-libc_freeres \
   dl-minimal \
   dl-mutex \
   dl-sysdep \
