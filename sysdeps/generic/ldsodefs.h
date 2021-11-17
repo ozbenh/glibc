@@ -713,6 +713,10 @@ struct rtld_global_ro
      namespace.  */
   void (*_dl_error_free) (void *);
   void *(*_dl_tls_get_addr_soft) (struct link_map *);
+
+  /* Called from __libc_shared to deallocate malloc'ed memory.  */
+  void (*_dl_libc_freeres) (void);
+
 #ifdef HAVE_DL_DISCOVER_OSVERSION
   int (*_dl_discover_osversion) (void);
 #endif
@@ -1470,6 +1474,9 @@ __rtld_mutex_init (void)
      needed at all (!SHARED).  */
 }
 #endif /* !PTHREAD_IN_LIBC */
+
+/* Implementation of GL (dl_libc_freeres).  */
+void __rtld_libc_freeres (void) attribute_hidden;
 
 #if THREAD_GSCOPE_IN_TCB
 void __thread_gscope_wait (void) attribute_hidden;
