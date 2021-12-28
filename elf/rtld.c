@@ -52,6 +52,7 @@
 #include <dl-execve.h>
 #include <get-dynamic-info.h>
 #include <dl-audit-check.h>
+#include <dl-find_object.h>
 
 #include <assert.h>
 
@@ -582,6 +583,10 @@ _dl_start (void *arg)
      before ELF_DYNAMIC_RELOCATE.  */
 
   __rtld_malloc_init_stubs ();
+
+  /* Do not use an initializer for these members because it would
+     intefere with __rtld_static_init.  */
+  GLRO (dl_find_object) = &_dl_find_object;
 
   {
 #ifdef DONT_USE_BOOTSTRAP_MAP
@@ -2396,6 +2401,9 @@ dl_main (const ElfW(Phdr) *phdr,
 	  rtld_timer_stop (&relocate_time, start);
 	}
 
+      /* Set up the object lookup structures.  */
+      _dl_find_object_init ();
+
       /* The library defining malloc has already been relocated due to
 	 prelinking.  Resolve the malloc symbols for the dynamic
 	 loader.  */
@@ -2509,6 +2517,9 @@ dl_main (const ElfW(Phdr) *phdr,
 	 We must do this after TLS initialization in case after this
 	 re-relocation, we might call a user-supplied function
 	 (e.g. calloc from _dl_relocate_object) that uses TLS data.  */
+
+      /* Set up the object lookup structures.  */
+      _dl_find_object_init ();
 
       /* The malloc implementation has been relocated, so resolving
 	 its symbols (and potentially calling IFUNC resolvers) is safe
