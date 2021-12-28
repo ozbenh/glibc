@@ -43,6 +43,7 @@ routines = \
   dl-sym \
   dl-sysdep \
   enbl-secure \
+  libc-dl_find_object \
   libc_early_init \
   rtld_static_init \
   # routines
@@ -57,6 +58,7 @@ dl-routines = \
   dl-deps \
   dl-exception \
   dl-execstack \
+  dl-find_object \
   dl-fini \
   dl-init \
   dl-load \
@@ -117,6 +119,9 @@ elide-routines.os = \
   rtld_static_init \
   thread_gscope_wait \
   # elide-routines.os
+
+# These object files are only included in the dynamically-linked libc.
+shared-only-routines = libc-dl_find_object
 
 # ld.so uses those routines, plus some special stuff for being the program
 # interpreter and operating independent of libc.
@@ -279,6 +284,7 @@ tests-static-internal := \
   tst-stackguard1-static \
   tst-tls1-static \
   tst-tls1-static-non-pie \
+  tst-dl_find_object-static \
   # tests-static-internal
 
 CRT-tst-tls1-static-non-pie := $(csu-objpfx)crt1.o
@@ -511,6 +517,7 @@ tests-internal += \
   tst-tls8 \
   unload \
   unload2 \
+  tst-dl_find_object tst-dl_find_object-threads \
   # tests-internal
 
 tests-container += \
@@ -771,6 +778,15 @@ modules-names = \
   tst-deep1mod1 \
   tst-deep1mod2 \
   tst-deep1mod3 \
+  tst-dl_find_object-mod1 \
+  tst-dl_find_object-mod2 \
+  tst-dl_find_object-mod3 \
+  tst-dl_find_object-mod4 \
+  tst-dl_find_object-mod5 \
+  tst-dl_find_object-mod6 \
+  tst-dl_find_object-mod7 \
+  tst-dl_find_object-mod8 \
+  tst-dl_find_object-mod9 \
   tst-dlmopen1mod \
   tst-dlclose-lazy-mod1 \
   tst-dlclose-lazy-mod2 \
@@ -2746,6 +2762,37 @@ $(objpfx)tst-ro-dynamic-mod.so: $(objpfx)tst-ro-dynamic-mod.os \
 		$(objpfx)tst-ro-dynamic-mod.os
 
 $(objpfx)tst-rtld-run-static.out: $(objpfx)/ldconfig
+
+$(objpfx)tst-dl_find_object.out: \
+  $(objpfx)tst-dl_find_object-mod1.so $(objpfx)tst-dl_find_object-mod2.so
+$(objpfx)tst-dl_find_object-static.out: \
+  $(objpfx)tst-dl_find_object-mod1.so $(objpfx)tst-dl_find_object-mod2.so
+tst-dl_find_object-static-ENV = $(static-dlopen-environment)
+CFLAGS-tst-dl_find_object.c += -funwind-tables
+CFLAGS-tst-dl_find_object-static.c += -funwind-tables
+LDFLAGS-tst-dl_find_object-static += -Wl,--eh-frame-hdr
+CFLAGS-tst-dl_find_object-mod1.c += -funwind-tables
+CFLAGS-tst-dl_find_object-mod2.c += -funwind-tables
+LDFLAGS-tst-dl_find_object-mod2.so += -Wl,--enable-new-dtags,-z,nodelete
+$(objpfx)tst-dl_find_object-threads: $(shared-thread-library)
+CFLAGS-tst-dl_find_object-threads.c += -funwind-tables
+$(objpfx)tst-dl_find_object-threads.out: \
+  $(objpfx)tst-dl_find_object-mod1.so \
+  $(objpfx)tst-dl_find_object-mod2.so \
+  $(objpfx)tst-dl_find_object-mod3.so \
+  $(objpfx)tst-dl_find_object-mod4.so \
+  $(objpfx)tst-dl_find_object-mod5.so \
+  $(objpfx)tst-dl_find_object-mod6.so \
+  $(objpfx)tst-dl_find_object-mod7.so \
+  $(objpfx)tst-dl_find_object-mod8.so \
+  $(objpfx)tst-dl_find_object-mod9.so
+CFLAGS-tst-dl_find_object-mod3.c += -funwind-tables
+CFLAGS-tst-dl_find_object-mod4.c += -funwind-tables
+CFLAGS-tst-dl_find_object-mod5.c += -funwind-tables
+CFLAGS-tst-dl_find_object-mod6.c += -funwind-tables
+CFLAGS-tst-dl_find_object-mod7.c += -funwind-tables
+CFLAGS-tst-dl_find_object-mod8.c += -funwind-tables
+CFLAGS-tst-dl_find_object-mod9.c += -funwind-tables
 
 $(objpfx)tst-tls-allocation-failure-static-patched: \
   $(objpfx)tst-tls-allocation-failure-static $(..)scripts/tst-elf-edit.py

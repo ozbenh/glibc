@@ -1,4 +1,4 @@
-/* Deallocating malloc'ed memory from the dynamic loader.
+/* Basic tests for _dl_find_object.  Static version.
    Copyright (C) 2021 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
@@ -16,11 +16,7 @@
    License along with the GNU C Library; if not, see
    <https://www.gnu.org/licenses/>.  */
 
-#include <ldsodefs.h>
-#include <dl-find_object.h>
-
-void
-__rtld_libc_freeres (void)
-{
-  _dl_find_object_freeres ();
-}
+/* Disable tests around _r_debug and libc symbols that do not work in
+   the static case.  */
+#define FOR_STATIC
+#include "tst-dl_find_object.c"

@@ -1,4 +1,4 @@
-/* Deallocating malloc'ed memory from the dynamic loader.
+/* Locating objects in the process image.  libc forwarder.
    Copyright (C) 2021 Free Software Foundation, Inc.
    This file is part of the GNU C Library.
 
@@ -17,10 +17,10 @@
    <https://www.gnu.org/licenses/>.  */
 
 #include <ldsodefs.h>
-#include <dl-find_object.h>
+#include <dlfcn.h>
 
-void
-__rtld_libc_freeres (void)
+int
+_dl_find_object (void *address, struct dl_find_object *result)
 {
-  _dl_find_object_freeres ();
+  return GLRO (dl_find_object) (address, result);
 }
