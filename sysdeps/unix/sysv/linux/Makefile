@@ -55,7 +55,7 @@ endif
 
 ifeq ($(subdir),misc)
 sysdep_routines += adjtimex clone umount umount2 readahead sysctl \
-		   setfsuid setfsgid epoll_pwait signalfd \
+		   setfsuid setfsgid epoll_pwait epoll_pwait2 signalfd \
 		   eventfd eventfd_read eventfd_write prlimit \
 		   personality epoll_wait tee vmsplice splice \
 		   open_by_handle_at mlock2 pkey_mprotect pkey_set pkey_get \
@@ -131,6 +131,7 @@ tests += tst-clone tst-clone2 tst-clone3 tst-fanotify tst-personality \
 	 tst-clock_adjtime tst-adjtimex tst-ntp_adjtime tst-ntp_gettime \
 	 tst-ntp_gettimex tst-sigtimedwait tst-misalign-clone \
   tst-close_range \
+  tst-epoll \
   tst-prctl \
   tst-scm_rights \
   tst-getauxval \
@@ -160,6 +161,7 @@ endif
 tests-time64 += \
   tst-adjtimex-time64 \
   tst-clock_adjtime-time64 \
+  tst-epoll-time64 \
   tst-ntp_adjtime-time64 \
   tst-ntp_gettime-time64 \
   tst-ntp_gettimex-time64 \
