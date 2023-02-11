@@ -26,3 +26,5 @@
 @order glibc.malloc.tcache_max
 @order glibc.malloc.check
 @order glibc.cpu.hwcaps
+@order glibc.gmon.minarcs
+@order glibc.gmon.maxarcs
