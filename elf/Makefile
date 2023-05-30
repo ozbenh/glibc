@@ -392,6 +392,7 @@ tests += \
   tst-debug1 \
   tst-deep1 \
   tst-dl-is_dso \
+  tst-dlclose-lazy \
   tst-dlmodcount \
   tst-dlmopen1 \
   tst-dlmopen3 \
@@ -742,6 +743,8 @@ modules-names = \
   tst-deep1mod2 \
   tst-deep1mod3 \
   tst-dlmopen1mod \
+  tst-dlclose-lazy-mod1 \
+  tst-dlclose-lazy-mod2 \
   tst-dlmopen-dlerror-mod \
   tst-dlmopen-gethostbyname-mod \
   tst-dlmopen-twice-mod1 \
@@ -2676,3 +2679,8 @@ tst-audit-tlsdesc-dlopen-ENV = LD_AUDIT=$(objpfx)tst-auditmod-tlsdesc.so
 $(objpfx)tst-dlmopen-twice.out: \
   $(objpfx)tst-dlmopen-twice-mod1.so \
   $(objpfx)tst-dlmopen-twice-mod2.so
+
+LDFLAGS-tst-dlclose-lazy-mod1.so = -Wl,-z,lazy,--no-as-needed
+$(objpfx)tst-dlclose-lazy-mod1.so: $(objpfx)tst-dlclose-lazy-mod2.so
+$(objpfx)tst-dlclose-lazy.out: \
+  $(objpfx)tst-dlclose-lazy-mod1.so $(objpfx)tst-dlclose-lazy-mod2.so
