@@ -47,7 +47,7 @@ do_test (void)
       _exit (1);
     }
 
-  delayed_exit (1);
+  delayed__exit (1);
   xpthread_join (th);
 
   puts ("join returned");
