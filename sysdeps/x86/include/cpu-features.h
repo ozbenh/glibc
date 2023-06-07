@@ -919,6 +919,10 @@ struct cpu_features
   unsigned long int level4_cache_size;
 };
 
+/* When no user non_temporal_threshold is specified. We default to
+   cachesize / cachesize_non_temporal_divisor.  */
+extern unsigned long int __rtld_global_ro_cachesize_non_temporal_divisor;
+
 /* Get a pointer to the CPU features structure.  */
 extern const struct cpu_features *_dl_x86_get_cpu_features (void)
      __attribute__ ((pure));

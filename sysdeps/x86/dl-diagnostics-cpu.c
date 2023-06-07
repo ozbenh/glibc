@@ -117,4 +117,6 @@ _dl_diagnostics_cpu (void)
                   + sizeof (cpu_features->level4_cache_size)
                   == sizeof (*cpu_features),
                   "last cpu_features field has been printed");
+  print_cpu_features_value ("cachesize_non_temporal_divisor",
+			    __rtld_global_ro_cachesize_non_temporal_divisor);
 }
