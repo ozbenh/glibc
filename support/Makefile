@@ -134,6 +134,7 @@ libsupport-routines = \
   xfdopendir \
   xfopen \
   xfork \
+  xfread \
   xftruncate \
   xgetline \
   xgetpeername \
