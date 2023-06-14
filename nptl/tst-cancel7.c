@@ -41,6 +41,7 @@ tf (void *arg)
 
   strcpy (stpcpy (stpcpy (cmd, command), args), pidfilename);
   system (cmd);
+
   /* This call should never return.  */
   return NULL;
 }
