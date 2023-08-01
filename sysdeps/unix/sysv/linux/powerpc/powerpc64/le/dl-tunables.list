@@ -28,3 +28,4 @@
 @order glibc.malloc.check
 @order glibc.gmon.minarcs
 @order glibc.gmon.maxarcs
+@order glibc.cpu.hwcaps

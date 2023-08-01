@@ -21,6 +21,7 @@
 #include <wchar.h>
 #include <ldsodefs.h>
 #include <ifunc-impl-list.h>
+#include <cpu-features.h>
 
 /* Maximum number of IFUNC implementations.  */
 #define MAX_IFUNC	6
@@ -33,7 +34,8 @@ __libc_ifunc_impl_list (const char *name, struct libc_ifunc_impl *array,
 
   size_t i = 0;
 
-  unsigned long int hwcap = GLRO(dl_hwcap);
+  const struct cpu_features *features = &GLRO(dl_powerpc_cpu_features);
+  unsigned long int hwcap = features->hwcap;
   /* hwcap contains only the latest supported ISA, the code checks which is
      and fills the previous supported ones.  */
   if (hwcap & PPC_FEATURE_ARCH_2_06)
