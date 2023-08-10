@@ -125,6 +125,7 @@ tests += tst-clone tst-clone2 tst-clone3 tst-fanotify tst-personality \
   tst-prctl \
   tst-scm_rights \
   tst-getauxval \
+  tst-fdopendir-o_path \
   # tests
 
 # Test for the symbol version of fcntl that was replaced in glibc 2.28.
