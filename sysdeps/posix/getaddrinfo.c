@@ -346,7 +346,7 @@ getcanonname (nss_action_list nip, const char *hname, const char *name)
 	   string.  */
 	s = (char *) name;
     }
-  return __strdup (name);
+  return __strdup (s);
 }
 
 /* Process looked up canonical name and if necessary, decode to IDNA.  Result
