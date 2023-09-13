@@ -102,6 +102,7 @@ tests += \
   tst-resolv-invalid-cname \
   tst-resolv-network \
   tst-resolv-noaaaa \
+  tst-resolv-noaaaa-vc \
   tst-resolv-nondecimal \
   tst-resolv-res_init-multi \
   tst-resolv-search \
@@ -280,6 +281,7 @@ $(objpfx)tst-resolv-res_init-multi: $(objpfx)libresolv.so \
 $(objpfx)tst-resolv-res_init-thread: $(objpfx)libresolv.so \
   $(shared-thread-library)
 $(objpfx)tst-resolv-noaaaa: $(objpfx)libresolv.so $(shared-thread-library)
+$(objpfx)tst-resolv-noaaaa-vc: $(objpfx)libresolv.so $(shared-thread-library)
 $(objpfx)tst-resolv-invalid-cname: $(objpfx)libresolv.so \
   $(shared-thread-library)
 $(objpfx)tst-resolv-nondecimal: $(objpfx)libresolv.so $(shared-thread-library)
