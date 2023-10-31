@@ -26,6 +26,7 @@
 /* Other flags.  */
 #ifdef __USE_MISC
 # define MAP_32BIT	0x40		/* Only give out 32-bit addresses.  */
+# define MAP_ABOVE4G	0x80		/* Only map above 4GB.  */
 #endif
 
 #include <bits/mman-map-flags-generic.h>
