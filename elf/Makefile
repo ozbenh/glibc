@@ -419,6 +419,8 @@ tests += \
   tst-nodelete2 \
   tst-nodelete-dlclose \
   tst-nodelete-opened \
+  tst-nodeps1 \
+  tst-nodeps2 \
   tst-noload \
   tst-null-argv \
   tst-relsort1 \
@@ -777,6 +779,8 @@ modules-names = \
   tst-nodelete-dlclose-dso \
   tst-nodelete-dlclose-plugin \
   tst-nodelete-opened-lib \
+  tst-nodeps1-mod \
+  tst-nodeps2-mod \
   tst-null-argv-lib \
   tst-relsort1mod1 \
   tst-relsort1mod2 \
@@ -931,8 +935,15 @@ extra-test-objs += $(addsuffix .os,$(strip $(modules-names)))
 
 # filtmod1.so, tst-big-note-lib.so, tst-ro-dynamic-mod.so have special
 # rules.
-modules-names-nobuild := filtmod1 tst-big-note-lib tst-ro-dynamic-mod \
-			 tst-audit24bmod1 tst-audit24bmod2
+modules-names-nobuild += \
+  filtmod1 \
+  tst-audit24bmod1 \
+  tst-audit24bmod2 \
+  tst-big-note-lib \
+  tst-nodeps1-mod \
+  tst-nodeps2-mod \
+  tst-ro-dynamic-mod \
+  # modules-names-nobuild
 
 tests += $(tests-static)
 
@@ -2684,3 +2695,18 @@ LDFLAGS-tst-dlclose-lazy-mod1.so = -Wl,-z,lazy,--no-as-needed
 $(objpfx)tst-dlclose-lazy-mod1.so: $(objpfx)tst-dlclose-lazy-mod2.so
 $(objpfx)tst-dlclose-lazy.out: \
   $(objpfx)tst-dlclose-lazy-mod1.so $(objpfx)tst-dlclose-lazy-mod2.so
+
+# The object tst-nodeps1-mod.so has no explicit dependencies on libc.so.
+$(objpfx)tst-nodeps1-mod.so: $(objpfx)tst-nodeps1-mod.os
+	$(LINK.o) -nostartfiles -nostdlib -shared -o $@ $^
+tst-nodeps1.so-no-z-defs = yes
+# Link libc.so before the test module with the IFUNC resolver reference.
+LDFLAGS-tst-nodeps1 = $(common-objpfx)libc.so $(objpfx)tst-nodeps1-mod.so
+$(objpfx)tst-nodeps1: $(objpfx)tst-nodeps1-mod.so
+# Reuse the tst-nodeps1 module.  Link libc.so before the test module
+# with the IFUNC resolver reference.
+$(objpfx)tst-nodeps2-mod.so: $(common-objpfx)libc.so \
+  $(objpfx)tst-nodeps1-mod.so $(objpfx)tst-nodeps2-mod.os
+	$(LINK.o) -Wl,--no-as-needed -nostartfiles -nostdlib -shared -o $@ $^
+$(objpfx)tst-nodeps2.out: \
+  $(objpfx)tst-nodeps1-mod.so $(objpfx)tst-nodeps2-mod.so
