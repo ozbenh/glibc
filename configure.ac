@@ -533,6 +533,9 @@ libc_config_ok=no
 # whether to use such directories.
 with_fp_cond=1
 
+# A preconfigure script may define another name to TLS descriptor variant
+mtls_descriptor=gnu2
+
 dnl Let sysdeps/*/preconfigure act here.
 LIBC_PRECONFIGURE([$srcdir], [for sysdeps])
 
@@ -1429,7 +1432,7 @@ else
 fi
 AC_SUBST(fno_unit_at_a_time)
 
-AC_CACHE_CHECK([for -mtls-dialect=gnu2], libc_cv_mtls_dialect_gnu2,
+AC_CACHE_CHECK([for tls descriptor support], libc_cv_mtls_descriptor,
 [dnl
 cat > conftest.c <<EOF
 __thread int i;
@@ -1438,16 +1441,16 @@ void foo (void)
   i = 10;
 }
 EOF
-if AC_TRY_COMMAND([${CC-cc} $CFLAGS $CPPFLAGS -S -fPIC -mtls-dialect=gnu2
-		   conftest.c 1>&AS_MESSAGE_LOG_FD])
+if AC_TRY_COMMAND([${CC-cc} $CFLAGS $CPPFLAGS -fPIC -mtls-dialect=$mtls_descriptor -nostdlib -nostartfiles
+		   -shared conftest.c -o conftest 1>&AS_MESSAGE_LOG_FD])
 then
-  libc_cv_mtls_dialect_gnu2=yes
+  libc_cv_mtls_descriptor=$mtls_descriptor
 else
-  libc_cv_mtls_dialect_gnu2=no
+  libc_cv_mtls_descriptor=no
 fi
 rm -f conftest*])
-AC_SUBST(libc_cv_mtls_dialect_gnu2)
-LIBC_CONFIG_VAR([have-mtls-dialect-gnu2], [$libc_cv_mtls_dialect_gnu2])
+AC_SUBST(libc_cv_mtls_descriptor)
+LIBC_CONFIG_VAR([have-mtls-descriptor], [$libc_cv_mtls_descriptor])
 
 AC_CACHE_CHECK(whether cc puts quotes around section names,
 	       libc_cv_have_section_quotes,

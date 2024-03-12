@@ -619,7 +619,7 @@ LIBGD
 libc_cv_cc_loop_to_function
 libc_cv_cc_submachine
 libc_cv_cc_nofma
-libc_cv_mtls_dialect_gnu2
+libc_cv_mtls_descriptor
 fno_unit_at_a_time
 libc_cv_has_glob_dat
 libc_cv_hashstyle
@@ -3896,6 +3896,9 @@ libc_config_ok=no
 # whether to use such directories.
 with_fp_cond=1
 
+# A preconfigure script may define another name to TLS descriptor variant
+mtls_descriptor=gnu2
+
 if frags=`ls -d $srcdir/sysdeps/*/preconfigure 2> /dev/null`
 then
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking for sysdeps preconfigure fragments" >&5
@@ -6162,9 +6165,9 @@ else
 fi
 
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for -mtls-dialect=gnu2" >&5
-$as_echo_n "checking for -mtls-dialect=gnu2... " >&6; }
-if ${libc_cv_mtls_dialect_gnu2+:} false; then :
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for tls descriptor support" >&5
+$as_echo_n "checking for tls descriptor support... " >&6; }
+if ${libc_cv_mtls_descriptor+:} false; then :
   $as_echo_n "(cached) " >&6
 else
   cat > conftest.c <<EOF
@@ -6174,25 +6177,25 @@ void foo (void)
   i = 10;
 }
 EOF
-if { ac_try='${CC-cc} $CFLAGS $CPPFLAGS -S -fPIC -mtls-dialect=gnu2
-		   conftest.c 1>&5'
+if { ac_try='${CC-cc} $CFLAGS $CPPFLAGS -fPIC -mtls-dialect=$mtls_descriptor -nostdlib -nostartfiles
+		   -shared conftest.c -o conftest 1>&5'
   { { eval echo "\"\$as_me\":${as_lineno-$LINENO}: \"$ac_try\""; } >&5
   (eval $ac_try) 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; }
 then
-  libc_cv_mtls_dialect_gnu2=yes
+  libc_cv_mtls_descriptor=$mtls_descriptor
 else
-  libc_cv_mtls_dialect_gnu2=no
+  libc_cv_mtls_descriptor=no
 fi
 rm -f conftest*
 fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $libc_cv_mtls_dialect_gnu2" >&5
-$as_echo "$libc_cv_mtls_dialect_gnu2" >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $libc_cv_mtls_descriptor" >&5
+$as_echo "$libc_cv_mtls_descriptor" >&6; }
 
 config_vars="$config_vars
-have-mtls-dialect-gnu2 = $libc_cv_mtls_dialect_gnu2"
+have-mtls-descriptor = $libc_cv_mtls_descriptor"
 
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether cc puts quotes around section names" >&5
 $as_echo_n "checking whether cc puts quotes around section names... " >&6; }
