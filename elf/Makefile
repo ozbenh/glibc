@@ -69,6 +69,7 @@ dl-routines = \
   dl-printf \
   dl-profile \
   dl-reloc \
+  dl-rseq-symbols \
   dl-runtime \
   dl-scope \
   dl-setup_hash \
