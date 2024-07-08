@@ -681,6 +681,7 @@ force_install
 bindnow
 hardcoded_path_in_tests
 enable_timezone_tools
+man_pages_version
 rtld_early_cflags
 extra_nonshared_cflags
 use_default_link
@@ -763,6 +764,7 @@ with_headers
 with_default_link
 with_nonshared_cflags
 with_rtld_early_cflags
+with_man_pages
 enable_sanity_checks
 enable_shared
 enable_profile
@@ -1483,6 +1485,8 @@ Optional Packages:
                           build nonshared libraries with additional CFLAGS
   --with-rtld-early-cflags=CFLAGS
                           build early initialization with additional CFLAGS
+  --with-man-pages=VERSION
+                          tie manual to a specific man-pages version
   --with-cpu=CPU          select code for CPU variant
 
 Some influential environment variables:
@@ -3394,6 +3398,15 @@ else
   rtld_early_cflags=
 fi
 
+
+
+man_pages_version=6.9.1
+
+
+# Check whether --with-man-pages was given.
+if test "${with_man_pages+set}" = set; then :
+  withval=$with_man_pages; man_pages_version=$withval
+fi
 
 
 
