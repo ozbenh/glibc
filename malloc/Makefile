@@ -46,6 +46,8 @@ tests := mallocbug tst-malloc tst-valloc tst-calloc tst-obstack \
 	 tst-malloc-alternate-path \
 	 tst-aligned-alloc-random \
 	 tst-malloc-random \
+	 tst-aligned-alloc-random-thread \
+	 tst-aligned-alloc-random-thread-cross \
 
 tests-static := \
 	 tst-interpose-static-nothread \
@@ -96,7 +98,9 @@ tests-exclude-mcheck = tst-mallocstate \
 	tst-malloc-thread-fail \
 	tst-malloc-usable-tunables \
 	tst-malloc_info \
-	tst-compathooks-off tst-compathooks-on
+	tst-compathooks-off tst-compathooks-on \
+	tst-aligned-alloc-random-thread \
+	tst-aligned-alloc-random-thread-cross \
 
 tests-mcheck = $(filter-out $(tests-exclude-mcheck) $(tests-static), $(tests))
 endif
@@ -336,7 +340,11 @@ $(objpfx)tst-mallocstate: $(objpfx)libc_malloc_debug.so
 $(objpfx)tst-mallocstate-malloc-check: $(objpfx)libc_malloc_debug.so
 
 $(objpfx)tst-aligned-alloc-random.out: $(objpfx)tst-aligned_alloc-lib.so
+$(objpfx)tst-aligned-alloc-random-thread.out: $(objpfx)tst-aligned_alloc-lib.so
+$(objpfx)tst-aligned-alloc-random-thread-cross.out: $(objpfx)tst-aligned_alloc-lib.so
 $(objpfx)tst-malloc-random.out: $(objpfx)tst-aligned_alloc-lib.so
 
 tst-aligned-alloc-random-ENV = LD_PRELOAD=$(objpfx)tst-aligned_alloc-lib.so
+tst-aligned-alloc-random-thread-ENV = LD_PRELOAD=$(objpfx)tst-aligned_alloc-lib.so
+tst-aligned-alloc-random-thread-cross-ENV = LD_PRELOAD=$(objpfx)tst-aligned_alloc-lib.so
 tst-malloc-random-ENV = LD_PRELOAD=$(objpfx)tst-aligned_alloc-lib.so
