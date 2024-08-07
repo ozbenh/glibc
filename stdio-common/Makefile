@@ -165,6 +165,7 @@ tests := \
   tst-fdopen \
   tst-ferror \
   tst-fgets \
+  tst-fgets2 \
   tst-fileno \
   tst-fmemopen \
   tst-fmemopen2 \
