@@ -81,7 +81,7 @@ run_test (struct test_closure data)
   support_capture_subprocess_free (&result);
 
   /* Verify path is present and is a directory.  */
-  xstat (path, &fs);
+  xstat64 (path, &fs);
   TEST_VERIFY_EXIT (S_ISDIR (fs.st_mode));
   printf ("info: Directory '%s' exists.\n", path);
 }
