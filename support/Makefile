@@ -200,6 +200,7 @@ libsupport-routines = \
   xsignal \
   xsigstack \
   xsocket \
+  xstatx \
   xposix_spawn \
   xposix_spawn_file_actions_addclose \
   xposix_spawn_file_actions_adddup2 \
