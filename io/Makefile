@@ -81,7 +81,8 @@ tests		:= test-utime test-stat test-stat2 test-lfs tst-getcwd \
 		   tst-closefrom \
 		   tst-ftw-bz28126 \
 		   tst-fchmod-errors \
-		   tst-fchmod-fuse
+		   tst-fchmod-fuse \
+		   tst-lstat-nofollow \
 
 tests-time64 := \
   tst-fcntl-time64 \
@@ -90,6 +91,7 @@ tests-time64 := \
   tst-futimes-time64\
   tst-futimesat-time64 \
   tst-lchmod-time64 \
+  tst-lstat-nofollow-time64 \
   tst-lutimes-time64 \
   tst-stat-time64 \
   tst-utime-time64 \
