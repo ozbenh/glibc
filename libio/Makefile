@@ -76,6 +76,7 @@ tests = \
   tst-eof \
   tst-ext \
   tst-ext2 \
+  tst-fclose-unopened \
   tst-fdopen-seek-failure \
   tst-fgetc-after-eof \
   tst-fgetwc \
