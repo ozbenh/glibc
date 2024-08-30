@@ -79,7 +79,8 @@ tests		:= test-utime test-stat test-stat2 test-lfs tst-getcwd \
 		   tst-futimens \
 		   tst-utimensat \
 		   tst-closefrom \
-		   tst-ftw-bz28126
+		   tst-ftw-bz28126 \
+		   tst-fchmod-errors
 
 tests-time64 := \
   tst-fcntl-time64 \
