@@ -73,6 +73,8 @@ libsupport-routines = \
   support_quote_blob \
   support_quote_blob_wide \
   support_quote_string \
+  support_readdir_check \
+  support_readdir_r_check \
   support_record_failure \
   support_run_diff \
   support_select_modifies_timeout \
@@ -112,6 +114,7 @@ libsupport-routines = \
   xclock_settime_time64 \
   xclone \
   xclose \
+  xclosedir \
   xchmod \
   xconnect \
   xcopy_file_range \
@@ -120,6 +123,7 @@ libsupport-routines = \
   xdup2 \
   xfchmod \
   xfclose \
+  xfdopendir \
   xfopen \
   xfork \
   xftruncate \
@@ -137,6 +141,7 @@ libsupport-routines = \
   xmunmap \
   xnewlocale \
   xopen \
+  xopendir \
   xpipe \
   xpoll \
   xposix_memalign \
@@ -306,6 +311,7 @@ tests = \
   tst-test_compare_string \
   tst-test_compare_string_wide \
   tst-timespec \
+  tst-xdirent \
   tst-xreadlink \
   tst-xsigstack \
 
