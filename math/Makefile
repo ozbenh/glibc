@@ -452,6 +452,7 @@ CFLAGS-test-flt-eval-method.c += -fexcess-precision=standard
 CFLAGS-test-fe-snans-always-signal.c += -fsignaling-nans
 
 CFLAGS-test-nan-const.c += -fno-builtin
+CFLAGS-test-nan-payload.c += -fno-builtin
 
 include ../Rules
 
