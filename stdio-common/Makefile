@@ -218,6 +218,7 @@ tests := \
   tst-freopen64-7 \
   tst-fseek \
   tst-fwrite \
+  tst-fwrite-ro \
   tst-getline \
   tst-getline-enomem \
   tst-gets \
