@@ -434,6 +434,7 @@ tests += \
   tst-single_threaded-pthread \
   tst-sonamemove-dlopen \
   tst-sonamemove-link \
+  tst-startup-errno \
   tst-thrlock \
   tst-tls10 \
   tst-tls11 \
