@@ -61,6 +61,7 @@ tests := \
   tst-closedir-leaks \
   tst-fdopendir \
   tst-fdopendir2 \
+  tst-readdir-long \
   tst-rewinddir \
   tst-scandir \
   tst-scandir64 \
