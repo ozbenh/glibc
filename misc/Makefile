@@ -109,6 +109,12 @@ tests-static := tst-empty
 tests-internal += tst-fd_to_filename
 tests-static += tst-fd_to_filename
 
+# Tests with long run times.
+xtests += \
+  tst-mkstemp-fuse \
+  tst-mkstemp-fuse-parallel \
+  # xtests
+
 ifeq ($(run-built-tests),yes)
 tests-special += $(objpfx)tst-error1-mem.out \
   $(objpfx)tst-allocate_once-mem.out
