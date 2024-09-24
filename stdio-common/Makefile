@@ -174,6 +174,7 @@ tests := \
   tst-fmemopen4 \
   tst-fphex \
   tst-fphex-wide \
+  tst-fread \
   tst-fseek \
   tst-fwrite \
   tst-gets \
