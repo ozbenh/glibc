@@ -163,6 +163,7 @@ tests := \
   tst-bz11319-fortify2 \
   tst-cookie \
   tst-fdopen \
+  tst-fdopen2 \
   tst-ferror \
   tst-fgets \
   tst-fgets2 \
