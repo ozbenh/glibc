@@ -219,6 +219,7 @@ tests := \
   tst-fseek \
   tst-fwrite \
   tst-fwrite-memstrm \
+  tst-fwrite-overflow \
   tst-fwrite-ro \
   tst-getline \
   tst-getline-enomem \
