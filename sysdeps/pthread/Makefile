@@ -129,6 +129,7 @@ tests += tst-cnd-basic tst-mtx-trylock tst-cnd-broadcast \
 	 tst-cancel30 \
   tst-spin5 \
   tst-sem19 \
+  tst-join16 \
 	 # tests
 
 tests-time64 := \
@@ -136,6 +137,7 @@ tests-time64 := \
   tst-cnd-timedwait-time64 \
   tst-cond11-time64 \
   tst-join14-time64 \
+  tst-join16-time64 \
   tst-mtx-timedlock-time64 \
   tst-rwlock14-time64 \
   tst-sem5-time64 \
