@@ -95,6 +95,9 @@ tests := \
   tst-canon-bz26341 \
   tst-cxa_atexit \
   tst-environ \
+  tst-getenv-signal \
+  tst-getenv-thread \
+  tst-getenv-unsetenv \
   tst-getrandom \
   tst-limits \
   tst-makecontext \
@@ -302,3 +305,7 @@ $(objpfx)tst-setcontext3.out: tst-setcontext3.sh $(objpfx)tst-setcontext3
 		 '$(run-program-env)' '$(test-program-prefix-after-env)' \
 		 $(common-objpfx)stdlib/; \
 	$(evaluate-test)
+
+$(objpfx)tst-getenv-signal: $(shared-thread-library)
+$(objpfx)tst-getenv-thread: $(shared-thread-library)
+$(objpfx)tst-getenv-unsetenv: $(shared-thread-library)
