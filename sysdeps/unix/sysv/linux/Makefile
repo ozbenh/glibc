@@ -382,7 +382,8 @@ CFLAGS-gai.c += -DNEED_NETLINK
 endif
 
 ifeq ($(subdir),nptl)
-tests += tst-align-clone tst-getpid1
+tests += tst-align-clone tst-getpid1 \
+  tst-sem_getvalue-affinity \
 
 # tst-rseq-nptl is an internal test because it requires a definition of
 # __NR_rseq from the internal system call list.
