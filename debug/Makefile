@@ -192,13 +192,14 @@ tests = backtrace-tst \
 	test-strcpy_chk \
 	test-stpcpy_chk \
 	tst-longjmp_chk2 \
+	tst-longjmp_chk3 \
 	tst-backtrace2 \
 	tst-backtrace3 \
 	tst-backtrace4 \
 	tst-backtrace5 \
 	tst-backtrace6 \
 	tst-realpath-chk \
-	$(tests-all-chk)
+	$(tests-all-chk) \
 
 ifeq ($(have-ssp),yes)
 tests += tst-ssp-1
