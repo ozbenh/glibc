@@ -128,6 +128,7 @@ tests += tst-cnd-basic tst-mtx-trylock tst-cnd-broadcast \
 	 tst-pthread_kill-exiting \
 	 tst-cancel30 \
   tst-spin5 \
+  tst-sem19 \
 	 # tests
 
 tests-time64 := \
