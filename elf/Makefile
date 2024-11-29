@@ -414,6 +414,12 @@ tests += \
   tst-glibc-hwcaps-mask \
   tst-glibc-hwcaps-prepend \
   tst-global1 \
+  tst-hash-collision1 \
+  tst-hash-collision1-gnu \
+  tst-hash-collision1-sysv \
+  tst-hash-collision2 \
+  tst-hash-collision2-gnu \
+  tst-hash-collision2-sysv \
   tst-initfinilazyfail \
   tst-initorder \
   tst-initorder2 \
@@ -488,6 +494,7 @@ tests-internal += \
   tst-create_format1 \
   tst-dl-hwcaps_split \
   tst-dlmopen2 \
+  tst-hash-collision3 \
   tst-ptrguard1 \
   tst-stackguard1 \
   tst-tls-surplus \
@@ -770,6 +777,16 @@ modules-names = \
   tst-filterobj-filtee \
   tst-filterobj-flt \
   tst-finilazyfailmod \
+  tst-hash-collision1-mod \
+  tst-hash-collision1-mod-gnu \
+  tst-hash-collision1-mod-sysv \
+  tst-hash-collision2-mod1 \
+  tst-hash-collision2-mod1-gnu \
+  tst-hash-collision2-mod1-sysv \
+  tst-hash-collision2-mod2 \
+  tst-hash-collision2-mod2-gnu \
+  tst-hash-collision2-mod2-sysv \
+  tst-hash-collision3-mod \
   tst-initlazyfailmod \
   tst-initorder2a \
   tst-initorder2b \
@@ -923,7 +940,8 @@ modules-names += \
 
 # Most modules build with _ISOMAC defined, but those filtered out
 # depend on internal headers.
-modules-names-tests = $(filter-out ifuncmod% tst-tlsmod%,\
+modules-names-tests = $(filter-out ifuncmod% tst-tlsmod% \
+				   tst-hash-collision3-mod,\
 				   $(modules-names))
 
 ifeq (yes,$(have-mtls-dialect-gnu2))
@@ -2781,3 +2799,25 @@ $(objpfx)tst-dlopen-tlsreinit3.out: $(objpfx)tst-auditmod1.so
 tst-dlopen-tlsreinit3-ENV = LD_AUDIT=$(objpfx)tst-auditmod1.so
 $(objpfx)tst-dlopen-tlsreinit4.out: $(objpfx)tst-auditmod1.so
 tst-dlopen-tlsreinit4-ENV = LD_AUDIT=$(objpfx)tst-auditmod1.so
+
+LDFLAGS-tst-hash-collision1-mod.so = -Wl,--hash-style=both
+$(objpfx)tst-hash-collision1: $(objpfx)tst-hash-collision1-mod.so
+LDFLAGS-tst-hash-collision1-mod-gnu.so = -Wl,--hash-style=gnu
+$(objpfx)tst-hash-collision1-gnu: $(objpfx)tst-hash-collision1-mod-gnu.so
+LDFLAGS-tst-hash-collision1-mod-sysv.so = -Wl,--hash-style=sysv
+$(objpfx)tst-hash-collision1-sysv: $(objpfx)tst-hash-collision1-mod-sysv.so
+LDFLAGS-tst-hash-collision2-mod1.so = -Wl,--hash-style=both
+LDFLAGS-tst-hash-collision2-mod2.so = -Wl,--hash-style=both
+$(objpfx)tst-hash-collision2: $(objpfx)tst-hash-collision2-mod1.so \
+  $(objpfx)tst-hash-collision2-mod2.so
+LDFLAGS-tst-hash-collision2-mod1-gnu.so = -Wl,--hash-style=gnu
+LDFLAGS-tst-hash-collision2-mod2-gnu.so = -Wl,--hash-style=gnu
+$(objpfx)tst-hash-collision2-gnu: $(objpfx)tst-hash-collision2-mod1-gnu.so \
+  $(objpfx)tst-hash-collision2-mod2-gnu.so
+LDFLAGS-tst-hash-collision2-mod1-sysv.so = -Wl,--hash-style=sysv
+LDFLAGS-tst-hash-collision2-mod2-sysv.so = -Wl,--hash-style=sysv
+$(objpfx)tst-hash-collision2-sysv: $(objpfx)tst-hash-collision2-mod1-sysv.so \
+  $(objpfx)tst-hash-collision2-mod2-sysv.so
+LDFLAGS-tst-hash-collision3-mod.so = \
+  -Wl,--version-script=tst-hash-collision3-mod.map
+$(objpfx)tst-hash-collision3: $(objpfx)tst-hash-collision3-mod.so
