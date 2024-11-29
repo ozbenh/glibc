@@ -96,7 +96,7 @@ tests		:= test-errno tstgetopt testfnm runtests runptests \
 		   tst-execvp3 tst-execvp4 \
 		   tst-execvpe1 tst-execvpe2 tst-execvpe3 tst-execvpe4 \
 		   tst-execvpe5 tst-execvpe6 \
-		   tst-getaddrinfo3 tst-fnmatch2 tst-cpucount tst-cpuset \
+		   tst-getaddrinfo3 tst-fnmatch2 tst-cpucount \
 		   bug-getopt1 bug-getopt2 bug-getopt3 bug-getopt4 \
 		   bug-getopt5 tst-getopt_long1 bug-regex34 bug-regex35 \
 		   tst-pathconf tst-rxspencer-no-utf8 \
@@ -108,7 +108,10 @@ tests		:= test-errno tstgetopt testfnm runtests runptests \
 		   tst-glob-tilde test-ssize-max tst-spawn4 bug-regex37 \
 		   bug-regex38 tst-regcomp-truncated tst-spawn-chdir \
 		   tst-wordexp-nocmd tst-execveat tst-spawn5 \
-		   tst-sched_getaffinity
+		   tst-sched_getaffinity \
+		   tst-cpuset-dynamic \
+		   tst-cpuset-static \
+
 
 # Test for the glob symbol version that was replaced in glibc 2.27.
 ifeq ($(have-GLIBC_2.26)$(build-shared),yesyes)
