@@ -109,8 +109,7 @@ struct __pthread_cond_s
       unsigned int __high;
     } __g1_start32;
   };
-  unsigned int __g_refs[2] __LOCK_ALIGNMENT;
-  unsigned int __g_size[2];
+  unsigned int __g_size[2] __LOCK_ALIGNMENT;
   unsigned int __g1_orig_size;
   unsigned int __wrefs;
   unsigned int __g_signals[2];
