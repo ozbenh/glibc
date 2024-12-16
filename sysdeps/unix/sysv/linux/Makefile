@@ -127,6 +127,7 @@ tests += tst-clone tst-clone2 tst-clone3 tst-fanotify tst-personality \
   tst-getauxval \
   tst-fdopendir-o_path \
   tst-linux-mremap1 \
+  tst-sched-affinity-inheritance \
   # tests
 
 # Test for the symbol version of fcntl that was replaced in glibc 2.28.
