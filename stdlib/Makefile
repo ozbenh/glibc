@@ -126,6 +126,7 @@ tests := \
   tst-setcontext7 \
   tst-setcontext8 \
   tst-setcontext9 \
+  tst-setenv-malloc \
   tst-strfmon_l \
   tst-strfrom \
   tst-strfrom-locale \
