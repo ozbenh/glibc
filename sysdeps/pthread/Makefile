@@ -131,6 +131,7 @@ tests += tst-cnd-basic tst-mtx-trylock tst-cnd-broadcast \
   tst-sem18 \
   tst-sem19 \
   tst-join16 \
+  tst-fopen-threaded \
 	 # tests
 
 tests-time64 := \
