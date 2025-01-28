@@ -222,6 +222,7 @@ tests := \
   tst-fdopen \
   tst-fdopen2 \
   tst-ferror \
+  tst-fflush-all-input \
   tst-fgets \
   tst-fgets2 \
   tst-fileno \
