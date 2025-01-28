@@ -102,8 +102,15 @@ struct _IO_FILE_complete
   void *_freeres_buf;
   size_t __pad5;
   int _mode;
+#ifdef __LP64__
+  int _unused3;
+#endif
+  __uint64_t _total_written;
+#ifndef __LP64__
+  int _unused3;
+#endif
   /* Make sure we don't get into trouble again.  */
-  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+  char _unused2[12 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
 };
 
 /* These macros are used by bits/stdio.h and internal headers.  */
