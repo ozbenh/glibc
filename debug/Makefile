@@ -116,7 +116,8 @@ routines  = \
   wprintf_chk \
   $(static-only-routines)
   # routines
-static-only-routines := stack_chk_fail_local
+static-only-routines := stack_chk_fail_local \
+  inet_ntop_chk \
 
 # Don't add stack_chk_fail_local.o to libc.a since __stack_chk_fail_local
 # is an alias of __stack_chk_fail in stack_chk_fail.o.
