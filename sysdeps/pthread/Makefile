@@ -145,7 +145,7 @@ tests-time64 := \
   tst-sem5-time64 \
   tst-thrd-sleep-time64 \
 
-static-only-routines = pthread_atfork
+static-only-routines += pthread_atfork
 
 # Files which must not be linked with libpthread.
 tests-nolibpthread += tst-unload

@@ -58,7 +58,6 @@ routines = \
   old_pthread_cond_signal \
   old_pthread_cond_timedwait \
   old_pthread_cond_wait \
-  pthread_atfork \
   pthread_attr_copy \
   pthread_attr_destroy \
   pthread_attr_extension \
@@ -204,7 +203,6 @@ routines = \
   vars \
   # routines
 
-static-only-routines = pthread_atfork
 libpthread-routines = libpthread-compat
 libpthread-shared-only-routines = libpthread-compat
 
