@@ -304,6 +304,11 @@ endif
 endif
 endif
 
+tests-internal = \
+  tst-setvbuf2 \
+  tst-setvbuf2-ind \
+  # tests-internal
+
 test-srcs = \
   $(xprintf-srcs) \
   $(xscanf-srcs) \
@@ -347,6 +352,11 @@ tests-special += \
   $(objpfx)tst-printf-fp-leak-mem.out \
   $(objpfx)tst-vfprintf-width-prec-mem.out \
   # tests-special
+
+tests-container += \
+  tst-setvbuf2 \
+  tst-setvbuf2-ind
+  # tests-container
 
 generated += \
   $(foreach f,$(xprintf-stems),$(f)-mem.out) \
@@ -601,6 +611,10 @@ $(objpfx)tst-setvbuf1.out: /dev/null $(objpfx)tst-setvbuf1
 $(objpfx)tst-setvbuf1-cmp.out: tst-setvbuf1.expect $(objpfx)tst-setvbuf1.out
 	cmp $^ > $@; \
 	$(evaluate-test)
+
+CFLAGS-tst-setvbuf2.c += -DIND_PROC=\"$(objpfx)tst-setvbuf2-ind\"
+$(objpfx)tst-setvbuf2-ind : $(objpfx)tst-setvbuf2-ind.o
+$(objpfx)tst-setvbuf2.out: $(objpfx)tst-setvbuf2-ind
 
 $(objpfx)tst-printf-round: $(libm)
 $(objpfx)tst-scanf-round: $(libm)
