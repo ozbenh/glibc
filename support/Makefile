@@ -324,6 +324,7 @@ tests = \
   tst-support_format_dns_packet \
   tst-support_fuse \
   tst-support-open-dev-null-range \
+  tst-support-openpty \
   tst-support-process_state \
   tst-support_quote_blob \
   tst-support_quote_blob_wide \
@@ -339,6 +340,10 @@ tests = \
   tst-xreadlink \
   tst-xsigstack \
   # tests
+
+tests-container = \
+  tst-support-openpty-c \
+  # tests-container
 
 ifeq ($(run-built-tests),yes)
 tests-special = \
