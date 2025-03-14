@@ -51,6 +51,7 @@ routines  = backtrace backtracesyms backtracesymsfd noophooks \
 	    fdelt_chk poll_chk ppoll_chk \
 	    explicit_bzero_chk \
 	    stack_chk_fail fortify_fail \
+	    readonly-area-fallback \
 	    $(static-only-routines)
 static-only-routines := stack_chk_fail_local
 
@@ -111,6 +112,12 @@ CFLAGS-tst-longjmp_chk3.c += -fexceptions -fasynchronous-unwind-tables
 CPPFLAGS-tst-longjmp_chk3.c += -D_FORTIFY_SOURCE=1
 CPPFLAGS-tst-realpath-chk.c += -D_FORTIFY_SOURCE=2
 CFLAGS-tst-sprintf-fortify-rdonly.c += -D_FORTIFY_SOURCE=2
+CFLAGS-tst-sprintf-fortify-rdonly-mod.c += -D_FORTIFY_SOURCE=2
+CFLAGS-tst-sprintf-fortify-rdonly-dlopen.c += -D_FORTIFY_SOURCE=2
+
+$(objpfx)tst-sprintf-fortify-rdonly: \
+	$(objpfx)tst-sprintf-fortify-rdonly-mod.so \
+	$(objpfx)tst-sprintf-fortify-rdonly-dlopen.so
 
 # _FORTIFY_SOURCE tests.
 # Auto-generate tests for _FORTIFY_SOURCE for different levels, compilers and
@@ -207,6 +214,11 @@ tests = backtrace-tst \
 	tst-sprintf-fortify-rdonly \
 	tst-sprintf-fortify-unchecked \
 	$(tests-all-chk) \
+
+modules-names += \
+  tst-sprintf-fortify-rdonly-dlopen \
+  tst-sprintf-fortify-rdonly-mod \
+  # modules-names
 
 ifeq ($(have-ssp),yes)
 tests += tst-ssp-1

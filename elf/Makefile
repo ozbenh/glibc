@@ -68,6 +68,7 @@ dl-routines = \
   dl-origin \
   dl-printf \
   dl-profile \
+  dl-readonly-area \
   dl-reloc \
   dl-rseq-symbols \
   dl-runtime \

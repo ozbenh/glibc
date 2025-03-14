@@ -283,6 +283,12 @@ struct audit_ifaces
   struct audit_ifaces *next;
 };
 
+enum dl_readonly_area_error_type
+{
+  dl_readonly_area_rdonly,
+  dl_readonly_area_writable,
+  dl_readonly_area_not_found,
+};
 
 /* Test whether given NAME matches any of the names of the given object.  */
 extern int _dl_name_match_p (const char *__name, const struct link_map *__map)
@@ -710,6 +716,10 @@ struct rtld_global_ro
 #ifdef HAVE_DL_DISCOVER_OSVERSION
   int (*_dl_discover_osversion) (void);
 #endif
+
+  /* Implementation of _dl_readonly_area, used in fortify routines to check
+     if memory area is within a read-only ELF segment.  */
+  enum dl_readonly_area_error_type (*_dl_readonly_area) (const void *, size_t);
 
   /* Dynamic linker operations used after static dlopen.  */
   const struct dlfcn_hook *_dl_dlfcn_hook;
@@ -1326,6 +1336,10 @@ extern void _dl_show_scope (struct link_map *new, int from)
 
 extern struct link_map *_dl_find_dso_for_object (const ElfW(Addr) addr);
 rtld_hidden_proto (_dl_find_dso_for_object)
+
+extern enum dl_readonly_area_error_type _dl_readonly_area (const void *ptr,
+							   size_t size)
+     attribute_hidden;
 
 /* Initialization which is normally done by the dynamic linker.  */
 extern void _dl_non_dynamic_init (void)

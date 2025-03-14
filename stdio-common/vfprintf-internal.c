@@ -1048,16 +1048,25 @@ static const uint8_t jump_table[] =
     LABEL (form_number):						      \
       if ((mode_flags & PRINTF_FORTIFY) != 0)				      \
 	{								      \
-	  if (! readonly_format)					      \
-	    {								      \
-	      extern int __readonly_area (const void *, size_t)		      \
-		attribute_hidden;					      \
-	      readonly_format						      \
-		= __readonly_area (format, ((STR_LEN (format) + 1)	      \
-					    * sizeof (CHAR_T)));	      \
-	    }								      \
-	  if (readonly_format < 0)					      \
-	    __libc_fatal ("*** %n in writable segment detected ***\n");	      \
+	  if (readonly_format == readonly_noerror)			      \
+	    readonly_format = __readonly_area (format, ((STR_LEN (format) + 1)\
+							* sizeof (CHAR_T)));  \
+	  switch (readonly_format)					      \
+	  {								      \
+	  case readonly_area_writable:					      \
+	    __libc_fatal ("*** %n in writable segments detected ***\n");      \
+	  /* The format is not within ELF segments and opening /proc/self/maps\
+	     failed because there are too many files.  */		      \
+	  case readonly_procfs_open_fail:				      \
+	    __libc_fatal ("*** procfs could not open ***\n");		      \
+	  /* The /proc/self/maps can not be opened either because it is not   \
+	     available or the process does not have the right permission.     \
+             Since it should not be attacker-controlled we can avoid	      \
+             failure.  */						      \
+	  case readonly_procfs_inaccessible:				      \
+	  case readonly_noerror:					      \
+	    break;							      \
+	  }								      \
 	}								      \
       /* Answer the count of characters written.  */			      \
       if (fspec == NULL)						      \
@@ -1299,7 +1308,8 @@ static int buffered_vfprintf (FILE *stream, const CHAR_T *fmt, va_list,
 
 /* Handle positional format specifiers.  */
 static int printf_positional (FILE *s,
-			      const CHAR_T *format, int readonly_format,
+			      const CHAR_T *format,
+			      enum readonly_error_type readonly_format,
 			      va_list ap, va_list *ap_savep, int done,
 			      int nspecs_done, const UCHAR_T *lead_str_end,
 			      CHAR_T *work_buffer, int save_errno,
@@ -1350,9 +1360,7 @@ vfprintf (FILE *s, const CHAR_T *format, va_list ap, unsigned int mode_flags)
   /* For the %m format we may need the current `errno' value.  */
   int save_errno = errno;
 
-  /* 1 if format is in read-only memory, -1 if it is in writable memory,
-     0 if unknown.  */
-  int readonly_format = 0;
+  enum readonly_error_type readonly_format = readonly_noerror;
 
   /* Orient the stream.  */
 #ifdef ORIENT
@@ -1693,7 +1701,8 @@ do_positional:
 }
 
 static int
-printf_positional (FILE *s, const CHAR_T *format, int readonly_format,
+printf_positional (FILE *s, const CHAR_T *format,
+		   enum readonly_error_type readonly_format,
 		   va_list ap, va_list *ap_savep, int done, int nspecs_done,
 		   const UCHAR_T *lead_str_end,
 		   CHAR_T *work_buffer, int save_errno,
