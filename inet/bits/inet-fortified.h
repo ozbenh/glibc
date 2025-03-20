@@ -34,4 +34,21 @@ __NTH (inet_ntop (int __af, const void * __restrict __src,
 			  __af, __src, __dst, __dst_size);
 };
 
+__fortify_function int
+__NTH (inet_pton (int __af, const char *__restrict __src,
+		  void * __restrict __dst))
+{
+  size_t sz = 0;
+  if (__af == AF_INET)
+    sz = sizeof (struct in_addr);
+  else if (__af == AF_INET6)
+    sz = sizeof (struct in6_addr);
+  else
+    return __inet_pton_alias (__af, __src, __dst);
+
+  return __glibc_fortify (inet_pton, sz, sizeof (char),
+			  __glibc_objsize (__dst),
+			  __af, __src, __dst);
+};
+
 #endif /* bits/inet-fortified.h.  */
