@@ -218,6 +218,7 @@ tests := \
   tst-bz11319 \
   tst-bz11319-fortify2 \
   tst-cookie \
+  tst-fclose-devzero \
   tst-fclose-offset \
   tst-fdopen \
   tst-fdopen2 \
