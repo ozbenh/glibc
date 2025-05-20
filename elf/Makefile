@@ -260,6 +260,7 @@ tests-static-normal := \
   tst-array1-static \
   tst-array5-static \
   tst-dl-iter-static \
+  tst-dlopen-sgid \
   tst-dst-static \
   tst-env-setuid \
   tst-env-setuid-tunables \
@@ -776,6 +777,7 @@ modules-names = \
   tst-dlmopen-gethostbyname-mod \
   tst-dlmopen-twice-mod1 \
   tst-dlmopen-twice-mod2 \
+  tst-dlopen-sgid-mod \
   tst-dlopen-tlsreinitmod1 \
   tst-dlopen-tlsreinitmod2 \
   tst-dlopen-tlsreinitmod3 \
@@ -2892,3 +2894,5 @@ tst-tls22-mod1.so-no-z-defs = yes
 tst-tls22-mod1-gnu2.so-no-z-defs = yes
 tst-tls22-mod2.so-no-z-defs = yes
 tst-tls22-mod2-gnu2.so-no-z-defs = yes
+
+$(objpfx)tst-dlopen-sgid.out: $(objpfx)tst-dlopen-sgid-mod.so
