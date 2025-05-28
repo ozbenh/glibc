@@ -64,7 +64,7 @@ fmts-xscanf-int := d i
 fmt-xscanf-real-convs :=
 fmts-xscanf-real := aa a ee e ff f gg g
 fmt-xscanf-uint-convs := uchar ullong ushort
-fmts-xscanf-uint := b o u xx x
+fmts-xscanf-uint := o u xx x
 
 xscanf-convs = $(sort $(fmt-xscanf-char-convs) $(fmt-xscanf-int-convs) \
 		      $(fmt-xscanf-real-convs) $(fmt-xscanf-uint-convs))

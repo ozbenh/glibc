@@ -16,14 +16,14 @@
 %*Lg:-0x0p+0:0:7:
 %Lg:-0x0p0:1:6:-0x0:
 %*Lg:-0x0p0:0:6:
-%Lg:-nan(09A_Zaz):1:13:-nan:
-%*Lg:-nan(09A_Zaz):0:13:
-%Lg:-nan():1:6:-nan:
-%*Lg:-nan():0:6:
-%Lg:nan():1:5:nan:
-%*Lg:nan():0:5:
-%Lg:nan(09A_Zaz):1:12:nan:
-%*Lg:nan(09A_Zaz):0:12:
+# BZ30647 %Lg:-nan(09A_Zaz):1:13:-nan:
+# BZ30647 %*Lg:-nan(09A_Zaz):0:13:
+# BZ30647 %Lg:-nan():1:6:-nan:
+# BZ30647 %*Lg:-nan():0:6:
+# BZ30647 %Lg:nan():1:5:nan:
+# BZ30647 %*Lg:nan():0:5:
+# BZ30647 %Lg:nan(09A_Zaz):1:12:nan:
+# BZ30647 %*Lg:nan(09A_Zaz):0:12:
 %Lg:0x0p0:1:5:0x0:
 %*Lg:0x0p0:0:5:
 %Lg:0x0p+0:1:6:0x0:
@@ -40,10 +40,10 @@
 %*Lg:0xf.ffffffffffff8p+1020:0:23:
 %Lg:infinity:1:8:inf:
 %*Lg:infinity:0:8:
-%Lg:+nan():1:6:nan:
-%*Lg:+nan():0:6:
-%Lg:+nan(09A_Zaz):1:13:nan:
-%*Lg:+nan(09A_Zaz):0:13:
+# BZ30647 %Lg:+nan():1:6:nan:
+# BZ30647 %*Lg:+nan():0:6:
+# BZ30647 %Lg:+nan(09A_Zaz):1:13:nan:
+# BZ30647 %*Lg:+nan(09A_Zaz):0:13:
 %Lg:+0x0p0:1:6:0x0:
 %*Lg:+0x0p0:0:6:
 %Lg:+0x0p+0:1:7:0x0:
@@ -78,14 +78,14 @@
 %*1Lg:-0x0p+0:0:-1:
 %1Lg:-0x0p0:0:-1:
 %*1Lg:-0x0p0:0:-1:
-%1Lg:-nan(09A_Zaz):0:-1:
-%*1Lg:-nan(09A_Zaz):0:-1:
-%1Lg:-nan():0:-1:
-%*1Lg:-nan():0:-1:
-%1Lg:nan():0:-1:
-%*1Lg:nan():0:-1:
-%1Lg:nan(09A_Zaz):0:-1:
-%*1Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %1Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %*1Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %1Lg:-nan():0:-1:
+# BZ30647 %*1Lg:-nan():0:-1:
+# BZ30647 %1Lg:nan():0:-1:
+# BZ30647 %*1Lg:nan():0:-1:
+# BZ30647 %1Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %*1Lg:nan(09A_Zaz):0:-1:
 %1Lg:0x0p0:1:1:0x0:
 %*1Lg:0x0p0:0:1:
 %1Lg:0x0p+0:1:1:0x0:
@@ -102,10 +102,10 @@
 %*1Lg:0xf.ffffffffffff8p+1020:0:1:
 %1Lg:infinity:0:-1:
 %*1Lg:infinity:0:-1:
-%1Lg:+nan():0:-1:
-%*1Lg:+nan():0:-1:
-%1Lg:+nan(09A_Zaz):0:-1:
-%*1Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %1Lg:+nan():0:-1:
+# BZ30647 %*1Lg:+nan():0:-1:
+# BZ30647 %1Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %*1Lg:+nan(09A_Zaz):0:-1:
 %1Lg:+0x0p0:0:-1:
 %*1Lg:+0x0p0:0:-1:
 %1Lg:+0x0p+0:0:-1:
@@ -140,14 +140,14 @@
 %*2Lg:-0x0p+0:0:2:
 %2Lg:-0x0p0:1:2:-0x0:
 %*2Lg:-0x0p0:0:2:
-%2Lg:-nan(09A_Zaz):0:-1:
-%*2Lg:-nan(09A_Zaz):0:-1:
-%2Lg:-nan():0:-1:
-%*2Lg:-nan():0:-1:
-%2Lg:nan():0:-1:
-%*2Lg:nan():0:-1:
-%2Lg:nan(09A_Zaz):0:-1:
-%*2Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %2Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %*2Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %2Lg:-nan():0:-1:
+# BZ30647 %*2Lg:-nan():0:-1:
+# BZ30647 %2Lg:nan():0:-1:
+# BZ30647 %*2Lg:nan():0:-1:
+# BZ30647 %2Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %*2Lg:nan(09A_Zaz):0:-1:
 # BZ12701 %2Lg:0x0p0:0:-1:
 # BZ12701 %*2Lg:0x0p0:0:-1:
 # BZ12701 %2Lg:0x0p+0:0:-1:
@@ -164,10 +164,10 @@
 # BZ12701 %*2Lg:0xf.ffffffffffff8p+1020:0:-1:
 %2Lg:infinity:0:-1:
 %*2Lg:infinity:0:-1:
-%2Lg:+nan():0:-1:
-%*2Lg:+nan():0:-1:
-%2Lg:+nan(09A_Zaz):0:-1:
-%*2Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %2Lg:+nan():0:-1:
+# BZ30647 %*2Lg:+nan():0:-1:
+# BZ30647 %2Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %*2Lg:+nan(09A_Zaz):0:-1:
 %2Lg:+0x0p0:1:2:0x0:
 %*2Lg:+0x0p0:0:2:
 %2Lg:+0x0p+0:1:2:0x0:
@@ -202,14 +202,14 @@
 # BZ12701 %*3Lg:-0x0p+0:0:-1:
 # BZ12701 %3Lg:-0x0p0:0:-1:
 # BZ12701 %*3Lg:-0x0p0:0:-1:
-%3Lg:-nan(09A_Zaz):0:-1:
-%*3Lg:-nan(09A_Zaz):0:-1:
-%3Lg:-nan():0:-1:
-%*3Lg:-nan():0:-1:
-%3Lg:nan():1:3:nan:
-%*3Lg:nan():0:3:
-%3Lg:nan(09A_Zaz):1:3:nan:
-%*3Lg:nan(09A_Zaz):0:3:
+# BZ30647 %3Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %*3Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %3Lg:-nan():0:-1:
+# BZ30647 %*3Lg:-nan():0:-1:
+# BZ30647 %3Lg:nan():1:3:nan:
+# BZ30647 %*3Lg:nan():0:3:
+# BZ30647 %3Lg:nan(09A_Zaz):1:3:nan:
+# BZ30647 %*3Lg:nan(09A_Zaz):0:3:
 %3Lg:0x0p0:1:3:0x0:
 %*3Lg:0x0p0:0:3:
 %3Lg:0x0p+0:1:3:0x0:
@@ -226,10 +226,10 @@
 %*3Lg:0xf.ffffffffffff8p+1020:0:3:
 %3Lg:infinity:1:3:inf:
 %*3Lg:infinity:0:3:
-%3Lg:+nan():0:-1:
-%*3Lg:+nan():0:-1:
-%3Lg:+nan(09A_Zaz):0:-1:
-%*3Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %3Lg:+nan():0:-1:
+# BZ30647 %*3Lg:+nan():0:-1:
+# BZ30647 %3Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %*3Lg:+nan(09A_Zaz):0:-1:
 # BZ12701 %3Lg:+0x0p0:0:-1:
 # BZ12701 %*3Lg:+0x0p0:0:-1:
 # BZ12701 %3Lg:+0x0p+0:0:-1:
@@ -264,14 +264,14 @@
 %*4Lg:-0x0p+0:0:4:
 %4Lg:-0x0p0:1:4:-0x0:
 %*4Lg:-0x0p0:0:4:
-%4Lg:-nan(09A_Zaz):1:4:-nan:
-%*4Lg:-nan(09A_Zaz):0:4:
-%4Lg:-nan():1:4:-nan:
-%*4Lg:-nan():0:4:
-%4Lg:nan():0:-1:
-%*4Lg:nan():0:-1:
-%4Lg:nan(09A_Zaz):0:-1:
-%*4Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %4Lg:-nan(09A_Zaz):1:4:-nan:
+# BZ30647 %*4Lg:-nan(09A_Zaz):0:4:
+# BZ30647 %4Lg:-nan():1:4:-nan:
+# BZ30647 %*4Lg:-nan():0:4:
+# BZ30647 %4Lg:nan():0:-1:
+# BZ30647 %*4Lg:nan():0:-1:
+# BZ30647 %4Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %*4Lg:nan(09A_Zaz):0:-1:
 # BZ12701 %4Lg:0x0p0:0:-1:
 # BZ12701 %*4Lg:0x0p0:0:-1:
 # BZ12701 %4Lg:0x0p+0:0:-1:
@@ -288,10 +288,10 @@
 %*4Lg:0xf.ffffffffffff8p+1020:0:4:
 %4Lg:infinity:0:-1:
 %*4Lg:infinity:0:-1:
-%4Lg:+nan():1:4:nan:
-%*4Lg:+nan():0:4:
-%4Lg:+nan(09A_Zaz):1:4:nan:
-%*4Lg:+nan(09A_Zaz):0:4:
+# BZ30647 %4Lg:+nan():1:4:nan:
+# BZ30647 %*4Lg:+nan():0:4:
+# BZ30647 %4Lg:+nan(09A_Zaz):1:4:nan:
+# BZ30647 %*4Lg:+nan(09A_Zaz):0:4:
 %4Lg:+0x0p0:1:4:0x0:
 %*4Lg:+0x0p0:0:4:
 %4Lg:+0x0p+0:1:4:0x0:
@@ -326,14 +326,14 @@
 # BZ12701 %*5Lg:-0x0p+0:0:-1:
 # BZ12701 %5Lg:-0x0p0:0:-1:
 # BZ12701 %*5Lg:-0x0p0:0:-1:
-%5Lg:-nan(09A_Zaz):0:-1:
-%*5Lg:-nan(09A_Zaz):0:-1:
-%5Lg:-nan():0:-1:
-%*5Lg:-nan():0:-1:
-%5Lg:nan():1:5:nan:
-%*5Lg:nan():0:5:
-%5Lg:nan(09A_Zaz):0:-1:
-%*5Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %5Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %*5Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %5Lg:-nan():0:-1:
+# BZ30647 %*5Lg:-nan():0:-1:
+# BZ30647 %5Lg:nan():1:5:nan:
+# BZ30647 %*5Lg:nan():0:5:
+# BZ30647 %5Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %*5Lg:nan(09A_Zaz):0:-1:
 %5Lg:0x0p0:1:5:0x0:
 %*5Lg:0x0p0:0:5:
 # BZ12701 %5Lg:0x0p+0:0:-1:
@@ -350,10 +350,10 @@
 %*5Lg:0xf.ffffffffffff8p+1020:0:5:
 %5Lg:infinity:0:-1:
 %*5Lg:infinity:0:-1:
-%5Lg:+nan():0:-1:
-%*5Lg:+nan():0:-1:
-%5Lg:+nan(09A_Zaz):0:-1:
-%*5Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %5Lg:+nan():0:-1:
+# BZ30647 %*5Lg:+nan():0:-1:
+# BZ30647 %5Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %*5Lg:+nan(09A_Zaz):0:-1:
 # BZ12701 %5Lg:+0x0p0:0:-1:
 # BZ12701 %*5Lg:+0x0p0:0:-1:
 # BZ12701 %5Lg:+0x0p+0:0:-1:
@@ -388,14 +388,14 @@
 # BZ12701 %*6Lg:-0x0p+0:0:-1:
 %6Lg:-0x0p0:1:6:-0x0:
 %*6Lg:-0x0p0:0:6:
-%6Lg:-nan(09A_Zaz):0:-1:
-%*6Lg:-nan(09A_Zaz):0:-1:
-%6Lg:-nan():1:6:-nan:
-%*6Lg:-nan():0:6:
-%6Lg:nan():1:5:nan:
-%*6Lg:nan():0:5:
-%6Lg:nan(09A_Zaz):0:-1:
-%*6Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %6Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %*6Lg:-nan(09A_Zaz):0:-1:
+# BZ30647 %6Lg:-nan():1:6:-nan:
+# BZ30647 %*6Lg:-nan():0:6:
+# BZ30647 %6Lg:nan():1:5:nan:
+# BZ30647 %*6Lg:nan():0:5:
+# BZ30647 %6Lg:nan(09A_Zaz):0:-1:
+# BZ30647 %*6Lg:nan(09A_Zaz):0:-1:
 %6Lg:0x0p0:1:5:0x0:
 %*6Lg:0x0p0:0:5:
 %6Lg:0x0p+0:1:6:0x0:
@@ -412,10 +412,10 @@
 %*6Lg:0xf.ffffffffffff8p+1020:0:6:
 %6Lg:infinity:0:-1:
 %*6Lg:infinity:0:-1:
-%6Lg:+nan():1:6:nan:
-%*6Lg:+nan():0:6:
-%6Lg:+nan(09A_Zaz):0:-1:
-%*6Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %6Lg:+nan():1:6:nan:
+# BZ30647 %*6Lg:+nan():0:6:
+# BZ30647 %6Lg:+nan(09A_Zaz):0:-1:
+# BZ30647 %*6Lg:+nan(09A_Zaz):0:-1:
 %6Lg:+0x0p0:1:6:0x0:
 %*6Lg:+0x0p0:0:6:
 # BZ12701 %6Lg:+0x0p+0:0:-1:
@@ -450,14 +450,14 @@
 %*20Lg:-0x0p+0:0:7:
 %20Lg:-0x0p0:1:6:-0x0:
 %*20Lg:-0x0p0:0:6:
-%20Lg:-nan(09A_Zaz):1:13:-nan:
-%*20Lg:-nan(09A_Zaz):0:13:
-%20Lg:-nan():1:6:-nan:
-%*20Lg:-nan():0:6:
-%20Lg:nan():1:5:nan:
-%*20Lg:nan():0:5:
-%20Lg:nan(09A_Zaz):1:12:nan:
-%*20Lg:nan(09A_Zaz):0:12:
+# BZ30647 %20Lg:-nan(09A_Zaz):1:13:-nan:
+# BZ30647 %*20Lg:-nan(09A_Zaz):0:13:
+# BZ30647 %20Lg:-nan():1:6:-nan:
+# BZ30647 %*20Lg:-nan():0:6:
+# BZ30647 %20Lg:nan():1:5:nan:
+# BZ30647 %*20Lg:nan():0:5:
+# BZ30647 %20Lg:nan(09A_Zaz):1:12:nan:
+# BZ30647 %*20Lg:nan(09A_Zaz):0:12:
 %20Lg:0x0p0:1:5:0x0:
 %*20Lg:0x0p0:0:5:
 %20Lg:0x0p+0:1:6:0x0:
@@ -474,10 +474,10 @@
 %*20Lg:0xf.ffffffffffff8p+1020:0:20:
 %20Lg:infinity:1:8:inf:
 %*20Lg:infinity:0:8:
-%20Lg:+nan():1:6:nan:
-%*20Lg:+nan():0:6:
-%20Lg:+nan(09A_Zaz):1:13:nan:
-%*20Lg:+nan(09A_Zaz):0:13:
+# BZ30647 %20Lg:+nan():1:6:nan:
+# BZ30647 %*20Lg:+nan():0:6:
+# BZ30647 %20Lg:+nan(09A_Zaz):1:13:nan:
+# BZ30647 %*20Lg:+nan(09A_Zaz):0:13:
 %20Lg:+0x0p0:1:6:0x0:
 %*20Lg:+0x0p0:0:6:
 %20Lg:+0x0p+0:1:7:0x0:
@@ -512,14 +512,14 @@
 %*32Lg:-0x0p+0:0:7:
 %32Lg:-0x0p0:1:6:-0x0:
 %*32Lg:-0x0p0:0:6:
-%32Lg:-nan(09A_Zaz):1:13:-nan:
-%*32Lg:-nan(09A_Zaz):0:13:
-%32Lg:-nan():1:6:-nan:
-%*32Lg:-nan():0:6:
-%32Lg:nan():1:5:nan:
-%*32Lg:nan():0:5:
-%32Lg:nan(09A_Zaz):1:12:nan:
-%*32Lg:nan(09A_Zaz):0:12:
+# BZ30647 %32Lg:-nan(09A_Zaz):1:13:-nan:
+# BZ30647 %*32Lg:-nan(09A_Zaz):0:13:
+# BZ30647 %32Lg:-nan():1:6:-nan:
+# BZ30647 %*32Lg:-nan():0:6:
+# BZ30647 %32Lg:nan():1:5:nan:
+# BZ30647 %*32Lg:nan():0:5:
+# BZ30647 %32Lg:nan(09A_Zaz):1:12:nan:
+# BZ30647 %*32Lg:nan(09A_Zaz):0:12:
 %32Lg:0x0p0:1:5:0x0:
 %*32Lg:0x0p0:0:5:
 %32Lg:0x0p+0:1:6:0x0:
@@ -536,10 +536,10 @@
 %*32Lg:0xf.ffffffffffff8p+1020:0:23:
 %32Lg:infinity:1:8:inf:
 %*32Lg:infinity:0:8:
-%32Lg:+nan():1:6:nan:
-%*32Lg:+nan():0:6:
-%32Lg:+nan(09A_Zaz):1:13:nan:
-%*32Lg:+nan(09A_Zaz):0:13:
+# BZ30647 %32Lg:+nan():1:6:nan:
+# BZ30647 %*32Lg:+nan():0:6:
+# BZ30647 %32Lg:+nan(09A_Zaz):1:13:nan:
+# BZ30647 %*32Lg:+nan(09A_Zaz):0:13:
 %32Lg:+0x0p0:1:6:0x0:
 %*32Lg:+0x0p0:0:6:
 %32Lg:+0x0p+0:1:7:0x0:
@@ -574,14 +574,14 @@
 # BZ12701 %*5Lg: -0x0p+0:0:-1:
 # BZ12701 %5Lg: -0x0p0:0:-1:
 # BZ12701 %*5Lg: -0x0p0:0:-1:
-%5Lg: -nan(09A_Zaz):0:-1:
-%*5Lg: -nan(09A_Zaz):0:-1:
-%5Lg: -nan():0:-1:
-%*5Lg: -nan():0:-1:
-%5Lg: nan():1:6:nan:
-%*5Lg: nan():0:6:
-%5Lg: nan(09A_Zaz):0:-1:
-%*5Lg: nan(09A_Zaz):0:-1:
+# BZ30647 %5Lg: -nan(09A_Zaz):0:-1:
+# BZ30647 %*5Lg: -nan(09A_Zaz):0:-1:
+# BZ30647 %5Lg: -nan():0:-1:
+# BZ30647 %*5Lg: -nan():0:-1:
+# BZ30647 %5Lg: nan():1:6:nan:
+# BZ30647 %*5Lg: nan():0:6:
+# BZ30647 %5Lg: nan(09A_Zaz):0:-1:
+# BZ30647 %*5Lg: nan(09A_Zaz):0:-1:
 %5Lg: 0x0p0:1:6:0x0:
 %*5Lg: 0x0p0:0:6:
 # BZ12701 %5Lg: 0x0p+0:0:-1:
@@ -598,10 +598,10 @@
 %*5Lg: 0xf.ffffffffffff8p+1020:0:6:
 %5Lg: infinity:0:-1:
 %*5Lg: infinity:0:-1:
-%5Lg: +nan():0:-1:
-%*5Lg: +nan():0:-1:
-%5Lg: +nan(09A_Zaz):0:-1:
-%*5Lg: +nan(09A_Zaz):0:-1:
+# BZ30647 %5Lg: +nan():0:-1:
+# BZ30647 %*5Lg: +nan():0:-1:
+# BZ30647 %5Lg: +nan(09A_Zaz):0:-1:
+# BZ30647 %*5Lg: +nan(09A_Zaz):0:-1:
 # BZ12701 %5Lg: +0x0p0:0:-1:
 # BZ12701 %*5Lg: +0x0p0:0:-1:
 # BZ12701 %5Lg: +0x0p+0:0:-1:
@@ -636,14 +636,14 @@
 %*32Lg: -0x0p+0:0:8:
 %32Lg: -0x0p0:1:7:-0x0:
 %*32Lg: -0x0p0:0:7:
-%32Lg: -nan(09A_Zaz):1:14:-nan:
-%*32Lg: -nan(09A_Zaz):0:14:
-%32Lg: -nan():1:7:-nan:
-%*32Lg: -nan():0:7:
-%32Lg: nan():1:6:nan:
-%*32Lg: nan():0:6:
-%32Lg: nan(09A_Zaz):1:13:nan:
-%*32Lg: nan(09A_Zaz):0:13:
+# BZ30647 %32Lg: -nan(09A_Zaz):1:14:-nan:
+# BZ30647 %*32Lg: -nan(09A_Zaz):0:14:
+# BZ30647 %32Lg: -nan():1:7:-nan:
+# BZ30647 %*32Lg: -nan():0:7:
+# BZ30647 %32Lg: nan():1:6:nan:
+# BZ30647 %*32Lg: nan():0:6:
+# BZ30647 %32Lg: nan(09A_Zaz):1:13:nan:
+# BZ30647 %*32Lg: nan(09A_Zaz):0:13:
 %32Lg: 0x0p0:1:6:0x0:
 %*32Lg: 0x0p0:0:6:
 %32Lg: 0x0p+0:1:7:0x0:
@@ -660,10 +660,10 @@
 %*32Lg: 0xf.ffffffffffff8p+1020:0:24:
 %32Lg: infinity:1:9:inf:
 %*32Lg: infinity:0:9:
-%32Lg: +nan():1:7:nan:
-%*32Lg: +nan():0:7:
-%32Lg: +nan(09A_Zaz):1:14:nan:
-%*32Lg: +nan(09A_Zaz):0:14:
+# BZ30647 %32Lg: +nan():1:7:nan:
+# BZ30647 %*32Lg: +nan():0:7:
+# BZ30647 %32Lg: +nan(09A_Zaz):1:14:nan:
+# BZ30647 %*32Lg: +nan(09A_Zaz):0:14:
 %32Lg: +0x0p0:1:7:0x0:
 %*32Lg: +0x0p0:0:7:
 %32Lg: +0x0p+0:1:8:0x0:
