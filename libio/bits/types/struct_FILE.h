@@ -71,9 +71,14 @@ struct _IO_FILE
   struct _IO_FILE *_chain;
 
   int _fileno;
+#ifdef _LIBC
   int _flags2:24;
   /* Fallback buffer to use when malloc fails to allocate one.  */
   char _short_backupbuf[1];
+#else
+  /* Legacy ABI for ABI checking outside of glibc.  */
+  int _flags2;
+#endif
   __off_t _old_offset; /* This used to be _offset but it's too small.  */
 
   /* 1+column number of pbase(); 0 is unknown. */
