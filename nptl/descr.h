@@ -164,6 +164,12 @@ struct pthread
     void *__padding[24];
   };
 
+#ifdef __x86_64__
+#define rtld_catch_f header.__padding[7]
+#else
+#define rtld_catch_f __padding[23]
+#endif
+
   /* This descriptor's link on the GL (dl_stack_used) or
      GL (dl_stack_user) list.  */
   list_t list;
@@ -396,9 +402,6 @@ struct pthread
      masked.)  */
   sigset_t sigmask;
 
-  /* Used by the exception handling implementation in the dynamic loader.  */
-  struct rtld_catch *rtld_catch;
-
   /* Indicates whether is a C11 thread created by thrd_creat.  */
   bool c11;
 
@@ -431,6 +434,12 @@ struct pthread
   (sizeof (struct pthread) - offsetof (struct pthread, rseq_area) \
    + sizeof ((struct pthread) {}.rseq_area))
 } __attribute ((aligned (TCB_ALIGNMENT)));
+
+#ifdef __x86_64__
+_Static_assert (sizeof ((*(struct pthread *)0).header) > sizeof ((*(struct pthread *)0).__padding), "rtld_catch");
+#else
+_Static_assert (sizeof ((*(struct pthread *)0).header) < sizeof ((*(struct pthread *)0).__padding), "rtld_catch");
+#endif
 
 static inline bool
 cancel_enabled_and_canceled (int value)

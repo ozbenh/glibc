@@ -50,7 +50,7 @@ typedef struct
   struct hurd_sigstate *_hurd_sigstate;
 
   /* Used by the exception handling implementation in the dynamic loader.  */
-  struct rtld_catch *rtld_catch;
+  struct rtld_catch *rtld_catch_f;
 } tcbhead_t;
 #endif
 

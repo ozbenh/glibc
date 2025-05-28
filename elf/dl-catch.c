@@ -59,7 +59,7 @@ get_catch (void)
     return rtld_catch_notls;
   else
 #endif
-    return THREAD_GETMEM (THREAD_SELF, rtld_catch);
+    return THREAD_GETMEM (THREAD_SELF, rtld_catch_f);
 }
 
 static void
@@ -70,7 +70,7 @@ set_catch (struct rtld_catch *catch)
     rtld_catch_notls = catch;
   else
 #endif
-    THREAD_SETMEM (THREAD_SELF, rtld_catch, catch);
+    THREAD_SETMEM (THREAD_SELF, rtld_catch_f, catch);
 }
 
 /* Lossage while resolving the program's own symbols is always fatal.  */
