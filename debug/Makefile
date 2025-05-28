@@ -187,6 +187,10 @@ LDFLAGS-tst-backtrace6 = -rdynamic
 
 CFLAGS-tst-ssp-1.c += -fstack-protector-all
 
+# Disable compiler optimizations around vsprintf (the function under test).
+CFLAGS-tst-sprintf-fortify-unchecked.c = \
+  -fno-builtin-vsprintf -fno-builtin-__vsprintf_chk
+
 tests = backtrace-tst \
 	tst-longjmp_chk \
 	test-strcpy_chk \
@@ -199,6 +203,7 @@ tests = backtrace-tst \
 	tst-backtrace5 \
 	tst-backtrace6 \
 	tst-realpath-chk \
+	tst-sprintf-fortify-unchecked \
 	$(tests-all-chk) \
 
 ifeq ($(have-ssp),yes)
