@@ -184,10 +184,6 @@ tests := \
   tst-perror \
   tst-popen \
   tst-popen2 \
-  tst-printf-bz18872 \
-  tst-printf-bz25691 \
-  tst-printf-fp-free \
-  tst-printf-fp-leak \
   tst-printf-round \
   tst-printfsz \
   tst-put-error \
@@ -208,7 +204,6 @@ tests := \
   tst-unlockedio \
   tst-vfprintf-mbs-prec \
   tst-vfprintf-user-type \
-  tst-vfprintf-width-prec \
   tst-vfprintf-width-prec-alloc \
   tst-wc-printf \
   tstdiomisc \
@@ -216,6 +211,20 @@ tests := \
   tstscanf \
   xbug \
   # tests
+
+ifeq ($(run-built-tests),yes)
+ifeq (yes,$(build-shared))
+ifneq ($(PERL),no)
+tests += \
+  tst-printf-bz18872 \
+  tst-printf-bz25691 \
+  tst-printf-fp-free \
+  tst-printf-fp-leak \
+  tst-vfprintf-width-prec \
+  # tests
+endif
+endif
+endif
 
 test-srcs = \
   tst-printf \
@@ -225,15 +234,20 @@ test-srcs = \
 
 ifeq ($(run-built-tests),yes)
 tests-special += \
-  $(objpfx)tst-printf-bz18872-mem.out \
-  $(objpfx)tst-printf-bz25691-mem.out \
-  $(objpfx)tst-printf-fp-free-mem.out \
-  $(objpfx)tst-printf-fp-leak-mem.out \
   $(objpfx)tst-printf.out \
   $(objpfx)tst-printfsz-islongdouble.out \
   $(objpfx)tst-setvbuf1-cmp.out \
   $(objpfx)tst-unbputc.out \
   $(objpfx)tst-ungetc-leak-mem.out \
+  # tests-special
+
+ifeq (yes,$(build-shared))
+ifneq ($(PERL),no)
+tests-special += \
+  $(objpfx)tst-printf-bz18872-mem.out \
+  $(objpfx)tst-printf-bz25691-mem.out \
+  $(objpfx)tst-printf-fp-free-mem.out \
+  $(objpfx)tst-printf-fp-leak-mem.out \
   $(objpfx)tst-vfprintf-width-prec-mem.out \
   # tests-special
 
@@ -253,6 +267,8 @@ generated += \
   tst-vfprintf-width-prec-mem.out \
   tst-vfprintf-width-prec.mtrace \
   # generated
+endif
+endif
 endif # $(run-built-tests)
 
 tests-special += $(objpfx)tst-errno-manual.out
