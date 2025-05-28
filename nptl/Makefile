@@ -319,6 +319,8 @@ tests-internal := tst-robustpi8 tst-rwlock19 tst-rwlock20 \
 		  tst-barrier5 tst-signal7 tst-mutex8 tst-mutex8-static \
 		  tst-mutexpi8 tst-mutexpi8-static \
 		  tst-setgetname \
+		  tst-nptl-padding \
+		  # tests-internal
 
 xtests = tst-setuid1 tst-setuid1-static tst-setuid2 \
 	tst-mutexpp1 tst-mutexpp6 tst-mutexpp10 tst-setgroups \
