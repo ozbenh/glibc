@@ -56,6 +56,10 @@ tests := tst-wcstof wcsmbs-tst1 tst-wcsnlen tst-btowc tst-mbrtowc \
 	 $(addprefix test-,$(strop-tests)) tst-mbstowcs \
 	 test-wcsdup
 
+# This test runs for a long time.
+xtests += test-wcsncmp-nonarray
+
+
 include ../Rules
 
 ifeq ($(run-built-tests),yes)
