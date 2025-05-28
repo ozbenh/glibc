@@ -66,7 +66,16 @@ sysdep_routines += adjtimex clone umount umount2 readahead sysctl \
 		   fxstatat fxstatat64 \
 		   xmknod xmknodat convert_scm_timestamps \
 		   closefrom_fallback \
-		   clone3 clone-internal
+		   clone3 clone-internal \
+  sched_getattr \
+  sched_setattr \
+  # sysdep_routines
+
+# The implementations go into libc_nonshared.a, to preserve ABI.
+static-only-routines += \
+  sched_getattr \
+  sched_setattr \
+  # static-only-routines
 
 CFLAGS-gethostid.c = -fexceptions
 CFLAGS-tee.c = -fexceptions -fasynchronous-unwind-tables
@@ -128,6 +137,7 @@ tests += tst-clone tst-clone2 tst-clone3 tst-fanotify tst-personality \
   tst-fdopendir-o_path \
   tst-linux-mremap1 \
   tst-sched-affinity-inheritance \
+  tst-sched_setattr \
   # tests
 
 # Test for the symbol version of fcntl that was replaced in glibc 2.28.
