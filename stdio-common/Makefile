@@ -222,6 +222,7 @@ tests := \
   tst-gets \
   tst-grouping \
   tst-grouping2 \
+  tst-grouping3 \
   tst-long-dbl-fphex \
   tst-obprintf \
   tst-perror \
@@ -375,6 +376,7 @@ $(objpfx)tst-sprintf.out: $(gen-locales)
 $(objpfx)tst-sscanf.out: $(gen-locales)
 $(objpfx)tst-swprintf.out: $(gen-locales)
 $(objpfx)tst-vfprintf-mbs-prec.out: $(gen-locales)
+$(objpfx)tst-grouping3.out: $(gen-locales)
 endif
 
 tst-printf-bz18872-ENV = MALLOC_TRACE=$(objpfx)tst-printf-bz18872.mtrace \
