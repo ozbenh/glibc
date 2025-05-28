@@ -21,7 +21,7 @@
 enum readonly_error_type
 __readonly_area (const void *ptr, size_t size)
 {
-  switch (GLRO(dl_readonly_area (ptr, size)))
+  switch (_dl_readonly_area (ptr, size))
     {
     case dl_readonly_area_rdonly:
       return readonly_noerror;

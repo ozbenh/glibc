@@ -70,5 +70,8 @@ ld {
 
     # Set value of a tunable.
     __tunable_get_val;
+
+    # Check if an address range within a loaded ELF object is read-only.
+    _dl_readonly_area;
   }
 }

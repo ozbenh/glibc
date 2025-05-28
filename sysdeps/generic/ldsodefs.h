@@ -717,10 +717,6 @@ struct rtld_global_ro
   int (*_dl_discover_osversion) (void);
 #endif
 
-  /* Implementation of _dl_readonly_area, used in fortify routines to check
-     if memory area is within a read-only ELF segment.  */
-  enum dl_readonly_area_error_type (*_dl_readonly_area) (const void *, size_t);
-
   /* Dynamic linker operations used after static dlopen.  */
   const struct dlfcn_hook *_dl_dlfcn_hook;
 
@@ -1338,8 +1334,7 @@ extern struct link_map *_dl_find_dso_for_object (const ElfW(Addr) addr);
 rtld_hidden_proto (_dl_find_dso_for_object)
 
 extern enum dl_readonly_area_error_type _dl_readonly_area (const void *ptr,
-							   size_t size)
-     attribute_hidden;
+							   size_t size);
 
 /* Initialization which is normally done by the dynamic linker.  */
 extern void _dl_non_dynamic_init (void)
