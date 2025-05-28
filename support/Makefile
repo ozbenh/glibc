@@ -126,6 +126,7 @@ libsupport-routines = \
   xfork \
   xftruncate \
   xgetline \
+  xgetpeername \
   xgetsockname \
   xlisten \
   xlseek \
