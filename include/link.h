@@ -211,6 +211,7 @@ struct link_map
 				       freed, ie. not allocated with
 				       the dummy malloc in ld.so.  */
     unsigned int l_ld_readonly:1; /* Nonzero if dynamic section is readonly.  */
+    unsigned int l_tls_in_slotinfo:1; /* TLS slotinfo updated in dlopen.  */
 
     /* NODELETE status of the map.  Only valid for maps of type
        lt_loaded.  Lazy binding sets l_nodelete_active directly,
