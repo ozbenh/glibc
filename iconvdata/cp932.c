@@ -4560,7 +4560,7 @@ static const char from_ucs4_extra[229][2] =
 	if (! ignore_errors_p ())					      \
 	  {								      \
 	    /* This is an illegal character.  */			      \
-	    result = __GCONV_ILLEGAL_INPUT;				      \
+	    result = __gconv_mark_illegal_input (step_data);		      \
 	    break;							      \
 	  }								      \
 									      \
@@ -4600,7 +4600,7 @@ static const char from_ucs4_extra[229][2] =
 	    if (! ignore_errors_p ())					      \
 	      {								      \
 		/* This is an illegal character.  */			      \
-		result = __GCONV_ILLEGAL_INPUT;				      \
+		result = __gconv_mark_illegal_input (step_data);	      \
 		break;							      \
 	      }								      \
 									      \
@@ -4635,7 +4635,7 @@ static const char from_ucs4_extra[229][2] =
 	    if (! ignore_errors_p ())					      \
 	      {								      \
 		/* This is an illegal character.  */			      \
-		result = __GCONV_ILLEGAL_INPUT;				      \
+		result = __gconv_mark_illegal_input (step_data);	      \
 		break;							      \
 	      }								      \
 									      \

@@ -57,6 +57,10 @@ tests = \
 	tst-iconv-opt \
 	# tests
 
+tests-internal = \
+	tst-iconv-sticky-input-error \
+	# tests-internal
+
 others		= iconv_prog iconvconfig
 install-others-programs	= $(inst_bindir)/iconv
 install-sbin	= iconvconfig

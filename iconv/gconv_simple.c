@@ -259,7 +259,7 @@ ucs4_internal_loop (struct __gconv_step *step,
 	     UCS4 does not allow such values.  */
 	  if (irreversible == NULL)
 	    /* We are transliterating, don't try to correct anything.  */
-	    return __GCONV_ILLEGAL_INPUT;
+	    return __gconv_mark_illegal_input (step_data);
 
 	  if (flags & __GCONV_IGNORE_ERRORS)
 	    {
@@ -270,7 +270,7 @@ ucs4_internal_loop (struct __gconv_step *step,
 
 	  *inptrp = inptr;
 	  *outptrp = outptr;
-	  return __GCONV_ILLEGAL_INPUT;
+	  return __gconv_mark_illegal_input (step_data);
 	}
 
       *((uint32_t *) outptr) = inval;
@@ -397,7 +397,7 @@ ucs4_internal_loop_single (struct __gconv_step *step,
       if (!(flags & __GCONV_IGNORE_ERRORS))
 	{
 	  *inptrp -= cnt - (state->__count & 7);
-	  return __GCONV_ILLEGAL_INPUT;
+	  return __gconv_mark_illegal_input (step_data);
 	}
     }
   else
@@ -629,7 +629,7 @@ ucs4le_internal_loop (struct __gconv_step *step,
 	     UCS4 does not allow such values.  */
 	  if (irreversible == NULL)
 	    /* We are transliterating, don't try to correct anything.  */
-	    return __GCONV_ILLEGAL_INPUT;
+	    return __gconv_mark_illegal_input (step_data);
 
 	  if (flags & __GCONV_IGNORE_ERRORS)
 	    {
@@ -640,7 +640,7 @@ ucs4le_internal_loop (struct __gconv_step *step,
 
 	  *inptrp = inptr;
 	  *outptrp = outptr;
-	  return __GCONV_ILLEGAL_INPUT;
+	  return __gconv_mark_illegal_input (step_data);
 	}
 
       *((uint32_t *) outptr) = inval;
@@ -772,7 +772,7 @@ ucs4le_internal_loop_single (struct __gconv_step *step,
 	 represent the result.  This is a genuine bug in the input since
 	 UCS4 does not allow such values.  */
       if (!(flags & __GCONV_IGNORE_ERRORS))
-	return __GCONV_ILLEGAL_INPUT;
+	return __gconv_mark_illegal_input (step_data);
     }
   else
     {
@@ -1218,7 +1218,7 @@ ucs4le_internal_loop_single (struct __gconv_step *step,
 	   surrogates pass through, attackers could make a security	      \
 	   hole exploit by synthesizing any desired plane 1-16		      \
 	   character.  */						      \
-	result = __GCONV_ILLEGAL_INPUT;					      \
+	result = __gconv_mark_illegal_input (step_data);		      \
 	if (! ignore_errors_p ())					      \
 	  break;							      \
 	inptr += 4;							      \
@@ -1261,7 +1261,7 @@ ucs4le_internal_loop_single (struct __gconv_step *step,
 	   them.  (Catching this here is not security relevant.)  */	      \
 	if (! ignore_errors_p ())					      \
 	  {								      \
-	    result = __GCONV_ILLEGAL_INPUT;				      \
+	    result = __gconv_mark_illegal_input (step_data);		      \
 	    break;							      \
 	  }								      \
 	inptr += 2;							      \
@@ -1310,7 +1310,7 @@ ucs4le_internal_loop_single (struct __gconv_step *step,
 	   character.  */						      \
 	if (! ignore_errors_p ())					      \
 	  {								      \
-	    result = __GCONV_ILLEGAL_INPUT;				      \
+	    result = __gconv_mark_illegal_input (step_data);		      \
 	    break;							      \
 	  }								      \
 	inptr += 4;							      \
