@@ -33,8 +33,9 @@ routines := accept bind connect getpeername getsockname getsockopt	\
 
 tests := \
   tst-accept4 \
-  tst-sockopt \
   tst-cmsghdr \
+  tst-connect \
+  tst-sockopt \
   # tests
 
 tests-internal := \
