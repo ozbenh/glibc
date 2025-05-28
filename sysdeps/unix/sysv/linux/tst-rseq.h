@@ -23,7 +23,6 @@
 #include <syscall.h>
 #include <sys/rseq.h>
 #include <tls.h>
-#include <rseq-internal.h>
 
 static inline bool
 rseq_thread_registered (void)
