@@ -5279,6 +5279,15 @@ msgstr "ユーザが多すぎます"
 msgid "Disk quota exceeded"
 msgstr "ディスク使用量制限を超過しました"
 
+#. TRANS This indicates an internal confusion in the
+#. TRANS file system which is due to file system rearrangements on the server host
+#. TRANS for NFS file systems or corruption in other file systems.
+#. TRANS Repairing this condition usually requires unmounting, possibly repairing
+#. TRANS and remounting the file system.
+#: sysdeps/gnu/errlist.h:471
+msgid "Stale file handle"
+msgstr "古いファイルハンドルです"
+
 #. TRANS An attempt was made to NFS-mount a remote file system with a file name that
 #. TRANS already specifies an NFS-mounted file.
 #. TRANS (This is an error on some operating systems, but we expect it to work
