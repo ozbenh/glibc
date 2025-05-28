@@ -103,15 +103,19 @@ struct _IO_FILE_complete
   void *_freeres_buf;
   size_t __pad5;
   int _mode;
-#if __WORDSIZE == 64
+#ifdef _LIBC
+# if __WORDSIZE == 64
   int _unused3;
-#endif
+# endif
   __uint64_t _total_written;
-#if __WORDSIZE == 32
+# if __WORDSIZE == 32
   int _unused3;
-#endif
+# endif
   /* Make sure we don't get into trouble again.  */
   char _unused2[12 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+#else
+  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+#endif
 };
 
 /* These macros are used by bits/stdio.h and internal headers.  */
