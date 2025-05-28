@@ -46,7 +46,7 @@ do_test (void)
      This bug is distinct from bug 23432 which has to do with the
      minimum precision calculation (digit based).  */
   sprintf (buf, "%+-'13.9d", 1234567);
-  TEST_COMPARE_STRING (buf, "+001.234.567 ");
+  TEST_COMPARE_STRING (buf, "+1.234.567   ");
 
   return 0;
 }
