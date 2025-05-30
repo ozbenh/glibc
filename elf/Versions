@@ -76,5 +76,11 @@ ld {
 
     # Check if an address range within a loaded ELF object is read-only.
     _dl_readonly_area;
+
+    # Called from __libc_shared to deallocate malloc'ed memory.
+    __rtld_libc_freeres;
+
+    # Implementation of _dl_find_object.  The public entry point is in libc
+    __dl_find_object_internal;
   }
 }

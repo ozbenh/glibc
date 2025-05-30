@@ -381,7 +381,6 @@ struct rtld_global_ro _rtld_global_ro attribute_relro =
     ._dl_catch_error = _dl_catch_error,
     ._dl_error_free = _dl_error_free,
     ._dl_tls_get_addr_soft = _dl_tls_get_addr_soft,
-    ._dl_libc_freeres = __rtld_libc_freeres,
 #ifdef HAVE_DL_DISCOVER_OSVERSION
     ._dl_discover_osversion = _dl_discover_osversion
 #endif
@@ -583,10 +582,6 @@ _dl_start (void *arg)
      before ELF_DYNAMIC_RELOCATE.  */
 
   __rtld_malloc_init_stubs ();
-
-  /* Do not use an initializer for these members because it would
-     intefere with __rtld_static_init.  */
-  GLRO (dl_find_object) = &_dl_find_object;
 
   {
 #ifdef DONT_USE_BOOTSTRAP_MAP

@@ -24,3 +24,4 @@ __rtld_libc_freeres (void)
 {
   _dl_find_object_freeres ();
 }
+rtld_hidden_def (__rtld_libc_freeres)

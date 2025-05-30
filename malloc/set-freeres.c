@@ -69,7 +69,7 @@ __libc_freeres (void)
       call_function_static_weak (__libc_dlerror_result_free);
 
 #ifdef SHARED
-      GLRO (dl_libc_freeres) ();
+      __rtld_libc_freeres ();
 #endif
 
       for (p = symbol_set_first_element (__libc_freeres_ptrs);
