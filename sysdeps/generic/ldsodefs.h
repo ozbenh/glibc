@@ -714,14 +714,6 @@ struct rtld_global_ro
   void (*_dl_error_free) (void *);
   void *(*_dl_tls_get_addr_soft) (struct link_map *);
 
-  /* Called from __libc_shared to deallocate malloc'ed memory.  */
-  void (*_dl_libc_freeres) (void);
-
-  /* Implementation of _dl_find_object.  The public entry point is in
-     libc, and this is patched by __rtld_static_init to support static
-     dlopen.  */
-  int (*_dl_find_object) (void *, struct dl_find_object *);
-
 #ifdef HAVE_DL_DISCOVER_OSVERSION
   int (*_dl_discover_osversion) (void);
 #endif
@@ -1481,7 +1473,13 @@ __rtld_mutex_init (void)
 #endif /* !PTHREAD_IN_LIBC */
 
 /* Implementation of GL (dl_libc_freeres).  */
-void __rtld_libc_freeres (void) attribute_hidden;
+void __rtld_libc_freeres (void);
+rtld_hidden_proto (__rtld_libc_freeres)
+
+/* Implementation of _dl_find_object */
+int __dl_find_object_internal (void *, struct dl_find_object *);
+rtld_hidden_proto (__dl_find_object_internal)
+
 
 #if THREAD_GSCOPE_IN_TCB
 void __thread_gscope_wait (void) attribute_hidden;

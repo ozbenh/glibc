@@ -22,5 +22,5 @@
 int
 _dl_find_object (void *address, struct dl_find_object *result)
 {
-  return GLRO (dl_find_object) (address, result);
+  return __dl_find_object_internal (address, result);
 }

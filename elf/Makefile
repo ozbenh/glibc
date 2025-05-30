@@ -61,6 +61,7 @@ dl-routines = \
   dl-find_object \
   dl-fini \
   dl-init \
+  dl-libc_freeres \
   dl-load \
   dl-lookup \
   dl-lookup-direct \
@@ -137,7 +138,6 @@ rtld-routines = \
   dl-hwcaps \
   dl-hwcaps-subdirs \
   dl-hwcaps_split \
-  dl-libc_freeres \
   dl-minimal \
   dl-mutex \
   dl-sysdep \
@@ -284,7 +284,8 @@ tests-static-internal := \
   tst-stackguard1-static \
   tst-tls1-static \
   tst-tls1-static-non-pie \
-  tst-dl_find_object-static \
+# The backported version does not work with a static glibc
+# tst-dl_find_object-static \
   # tests-static-internal
 
 CRT-tst-tls1-static-non-pie := $(csu-objpfx)crt1.o
